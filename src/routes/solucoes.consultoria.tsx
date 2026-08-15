@@ -634,7 +634,7 @@ function ConsultoriaPage() {
           {[
             { t: "Pessoas", d: "Capacitação, estrutura do time, comissionamento e cultura comercial.", icon: <Users className="w-6 h-6" /> },
             { t: "Processos", d: "Padronização da jornada, qualificação, follow-up e gestão de objeções.", icon: <Workflow className="w-6 h-6" /> },
-            { t: "Gestão", d: "Indicadores, rituais de acompanhamento, previsibilidade e decisão.", icon: "", icon: <Target className="w-6 h-6" /> },
+            { t: "Gestão", d: "Indicadores, rituais de acompanhamento, previsibilidade e decisão.", icon: <Target className="w-6 h-6" /> },
             { t: "Tecnologia", d: "CRM, dashboards, automações e integrações que suportam escala.", icon: <Cpu className="w-6 h-6" /> },
             { t: "Automação", d: "Tarefas repetitivas que devem ser delegadas a sistemas.", icon: <RefreshCw className="w-6 h-6" /> },
             { t: "Aquisição", d: "Canais, volume de leads e eficiência do topo do funil.", icon: <TrendingUp className="w-6 h-6" /> },
