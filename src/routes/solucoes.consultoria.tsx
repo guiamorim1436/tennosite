@@ -42,6 +42,7 @@ export const Route = createFileRoute("/solucoes/consultoria")({
   head: () => ({
     title: "Diagnóstico Estratégico da Operação Comercial | Tenno",
     meta: [
+      { title: "Diagnóstico Estratégico da Operação Comercial | Tenno" },
       { name: "description", content: "Investigação estruturada da sua operação comercial. 4 reuniões, análise paralela, cliente oculto, relatório detalhado e roadmap estratégico." },
       { property: "og:title", content: "Diagnóstico Estratégico da Operação Comercial | Tenno" },
       { property: "og:description", content: "Investigação estruturada da sua operação comercial. 4 reuniões, análise paralela, cliente oculto, relatório detalhado e roadmap estratégico." },
