@@ -7,10 +7,15 @@ export const Route = createFileRoute("/solucoes/")({
   head: () => ({
     title: "Soluções | Tenno.",
     meta: [
+      { title: "Soluções | Tenno." },
       {
         name: "description",
         content: "Conheça nossas soluções em CRM, automação e consultoria estratégica.",
       },
+      { property: "og:title", content: "Soluções | Tenno." },
+      { property: "og:description", content: "Conheça nossas soluções em CRM, automação e consultoria estratégica." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
 });

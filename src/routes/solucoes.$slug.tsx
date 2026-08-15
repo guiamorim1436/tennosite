@@ -14,7 +14,10 @@ export const Route = createFileRoute("/solucoes/$slug")({
     if (!loaderData) {
       return {
         title: "Solução não encontrada | Tenno.",
-        meta: [{ name: "robots", content: "noindex" }],
+        meta: [
+          { title: "Solução não encontrada | Tenno." },
+          { name: "robots", content: "noindex" },
+        ],
       };
     }
     const { solution } = loaderData;
@@ -22,6 +25,7 @@ export const Route = createFileRoute("/solucoes/$slug")({
     return {
       title,
       meta: [
+        { title },
         { name: "description", content: solution.description.slice(0, 155) },
         { property: "og:title", content: title },
         { property: "og:description", content: solution.short },

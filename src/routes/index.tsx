@@ -11,6 +11,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     title: "Tenno. | Especialista em CRM",
     meta: [
+      { title: "Tenno. | Especialista em CRM" },
       {
         name: "description",
         content: "Transforme processos caóticos em máquinas de crescimento com Kommo CRM e metodologia Six Sigma.",
@@ -20,6 +21,7 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Metodologia certificada que combina automação inteligente com processos estruturados para multiplicar seus resultados em 9 meses.",
       },
+      { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
