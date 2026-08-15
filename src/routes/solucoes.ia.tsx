@@ -8,11 +8,13 @@ export const Route = createFileRoute("/solucoes/ia")({
   head: () => ({
     title: "IA Conversacional & Embarcada | Tenno.",
     meta: [
+      { title: "IA Conversacional & Embarcada | Tenno." },
       {
         name: "description",
         content: "Implementação de IA Conversacional Humanóide e IA Embarcada para transformar sua operação comercial.",
       },
       { property: "og:title", content: "IA Conversacional & Embarcada | Tenno." },
+      { property: "og:description", content: "Implementação de IA Conversacional Humanóide e IA Embarcada para transformar sua operação comercial." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
