@@ -77,6 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Tenno." },
       { name: "description", content: "A Tenno transforma operações comerciais em sistemas previsíveis de escala com CRM, automação e metodologia." },
       { name: "author", content: "Tenno" },
       { property: "og:title", content: "Tenno." },
