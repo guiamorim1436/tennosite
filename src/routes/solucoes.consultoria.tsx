@@ -69,7 +69,7 @@ const staggerContainer = {
 };
 
 const ctaWhatsApp =
-  "https://wa.me/5511912020723?text=Vim do site e gostaria de um diagnóstico/orçamento";
+  "https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02";
 
 function Section({
   title,

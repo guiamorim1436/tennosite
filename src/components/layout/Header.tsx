@@ -111,7 +111,7 @@ export function Header() {
           </div>
 
           <a 
-            href="https://wa.me/5511912020723?text=Vim do site e gostaria de um diagnóstico/orçamento"
+            href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
             target="_blank"
             rel="noopener noreferrer"
             className="h-10 px-6 rounded-full bg-accent text-white text-sm font-bold hover:bg-accent/90 transition-all flex items-center justify-center shadow-md backdrop-blur-2xl"

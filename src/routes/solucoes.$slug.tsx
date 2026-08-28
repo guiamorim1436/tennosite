@@ -86,7 +86,7 @@ function SolutionPage() {
               {solution.description}
             </p>
             <a 
-              href="https://wa.me/5511912020723?text=Vim do site e gostaria de um diagnóstico/orçamento"
+              href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-10 h-14 px-8 rounded-full bg-accent text-white font-bold hover:bg-accent/90 transition-all text-lg inline-flex items-center justify-center backdrop-blur-xl shadow-lg"

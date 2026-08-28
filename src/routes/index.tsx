@@ -58,7 +58,7 @@ function Index() {
               </p>
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
                 <a 
-                  href="https://wa.me/5511912020723?text=Vim do site e gostaria de um diagnóstico/orçamento"
+                  href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-14 px-8 rounded-full bg-accent text-white font-bold hover:bg-accent/90 transition-all text-lg flex items-center justify-center backdrop-blur-3xl shadow-lg hover:shadow-xl"
@@ -163,7 +163,7 @@ function Index() {
               <h2 className="text-5xl md:text-6xl font-bold mb-8">Pronto para transformar seu negócio?</h2>
               <p className="text-xl text-primary-foreground/80 mb-12">Marque um diagnóstico e descubra os gargalos que estão impedindo sua operação de crescer.</p>
               <a 
-                href="https://wa.me/5511912020723?text=Vim do site e gostaria de um diagnóstico/orçamento"
+                href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="h-16 px-12 bg-accent text-white font-bold rounded-full hover:bg-accent/90 transition-all text-xl inline-flex items-center justify-center backdrop-blur-3xl shadow-lg hover:shadow-xl"
@@ -205,7 +205,7 @@ function Index() {
               <h3 className="font-semibold text-lg mb-6">Social</h3>
               <div className="flex gap-4">
                 <a 
-                  href="https://wa.me/5511912020723?text=Vim do site e gostaria de um diagnóstico/orçamento" 
+                  href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:bg-accent hover:text-white transition-all text-muted-foreground hover:border-accent p-0 overflow-hidden"

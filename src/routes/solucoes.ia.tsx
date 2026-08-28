@@ -61,7 +61,7 @@ function IASolutionPage() {
 
             <div className="flex justify-center gap-6">
               <a 
-                href="https://wa.me/5511912020723?text=Vim do site e gostaria de um diagnóstico/orçamento"
+                href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="h-16 px-10 rounded-full bg-accent text-white font-bold hover:bg-accent/90 transition-all text-lg shadow-lg flex items-center justify-center backdrop-blur-3xl"
@@ -255,7 +255,7 @@ function IASolutionPage() {
               Sua operação merece o <br /> <span className="text-accent">estado da arte.</span>
             </h2>
             <a 
-              href="https://wa.me/5511912020723?text=Vim do site e gostaria de um diagnóstico/orçamento"
+              href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
               target="_blank"
               rel="noopener noreferrer"
               className="h-20 px-16 rounded-full bg-accent text-white font-black hover:bg-accent/90 transition-all text-xl inline-flex items-center justify-center backdrop-blur-3xl shadow-xl"
