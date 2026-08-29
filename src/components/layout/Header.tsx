@@ -26,7 +26,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md border-b border-slate-100">
+    <header className="fixed top-0 left-0 right-0 z-50 glass-nav">
       <div className="container mx-auto px-6 lg:px-12 h-20 flex items-center justify-between max-w-7xl">
         <Link to="/" className="font-['Questrial'] text-3xl font-bold tracking-tighter text-slate-900 hover:opacity-90 transition-opacity">
           Tenno<span className="text-pink-600">.</span>
@@ -50,7 +50,7 @@ export function Header() {
             </button>
 
             {open && (
-              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[420px] rounded-3xl border border-slate-100 bg-white shadow-2xl shadow-slate-200/60 p-3 animate-in fade-in slide-in-from-top-2">
+              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[420px] rounded-3xl border border-slate-200/80 bg-white/95 backdrop-blur-xl shadow-2xl shadow-slate-300/40 p-3 animate-in fade-in slide-in-from-top-2">
                 {solutions.map((s) => (
                   <Link
                     key={s.slug}

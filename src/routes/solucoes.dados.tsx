@@ -154,9 +154,11 @@ function DadosSolutionPage() {
           </div>
         </section>
 
-        {/* 2. O CENÁRIO DOS DADOS DESCONECTADOS */}
-        <section className="py-24 lg:py-32 relative bg-slate-50/50 border-b border-slate-100">
-          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+        {/* 2. DORES DA FALTA DE INTEGRAÇÃO */}
+        <section className="py-24 lg:py-32 relative bg-white border-b border-slate-100 overflow-hidden">
+          <div className="absolute top-1/2 left-0 w-80 h-80 bg-slate-100/50 rounded-full blur-[130px] pointer-events-none" />
+
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
             <motion.div {...fadeInUp} className="max-w-3xl mb-16">
               <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 O CUSTO DA INEFICIÊNCIA
@@ -187,13 +189,15 @@ function DadosSolutionPage() {
                 <motion.div
                   key={i}
                   {...fadeInUp}
-                  className="p-8 rounded-3xl bg-white border border-slate-100 hover:border-pink-200 hover:shadow-xl hover:shadow-slate-200/40 transition-all"
+                  className="p-8 rounded-3xl glass-card glass-card-hover flex flex-col justify-between"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-pink-50 flex items-center justify-center mb-6">
-                    {card.icon}
+                  <div>
+                    <div className="w-12 h-12 rounded-2xl bg-white/90 border border-slate-200/70 shadow-xs flex items-center justify-center mb-6">
+                      {card.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">{card.title}</h3>
+                    <p className="text-sm text-slate-500 font-light leading-relaxed">{card.desc}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{card.title}</h3>
-                  <p className="text-sm text-slate-500 font-light leading-relaxed">{card.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -201,8 +205,10 @@ function DadosSolutionPage() {
         </section>
 
         {/* 3. COMPONENTE INTERATIVO: GRAFO DE ARQUITETURA DE DADOS (NODE GRAPH) */}
-        <section id="fluxo-dados" className="py-24 lg:py-36 relative border-b border-slate-100">
-          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+        <section id="fluxo-dados" className="py-24 lg:py-36 relative border-b border-slate-100 bg-white overflow-hidden">
+          <div className="absolute top-1/2 right-0 w-96 h-96 bg-pink-100/30 rounded-full blur-[150px] pointer-events-none" />
+
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
             <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
               <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 ARQUITETURA DE INTEGRAÇÃO
@@ -216,7 +222,7 @@ function DadosSolutionPage() {
             </motion.div>
 
             {/* Segmented Control */}
-            <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto p-1.5 bg-slate-100/80 rounded-2xl max-w-4xl mx-auto mb-8 border border-slate-200/60 no-scrollbar">
+            <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto p-1.5 glass-pill rounded-2xl max-w-4xl mx-auto mb-8 no-scrollbar">
               {Object.keys(nodes).map((key) => {
                 const nodeData = nodes[key as keyof typeof nodes];
                 const isActive = activeNode === key;
@@ -226,7 +232,7 @@ function DadosSolutionPage() {
                     onClick={() => setActiveNode(key)}
                     className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
                       isActive
-                        ? "bg-white text-slate-900 shadow-sm border border-slate-200/80"
+                        ? "bg-white text-slate-900 shadow-sm border border-slate-200/90"
                         : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
@@ -247,7 +253,7 @@ function DadosSolutionPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -15 }}
                     transition={{ duration: 0.3 }}
-                    className="p-8 lg:p-12 rounded-[36px] bg-white border border-slate-200 shadow-xl shadow-slate-100 relative overflow-hidden"
+                    className="p-8 lg:p-12 rounded-[36px] glass-panel relative overflow-hidden"
                   >
                     <div className="grid lg:grid-cols-12 gap-8 items-start">
                       <div className="lg:col-span-5">
@@ -260,7 +266,7 @@ function DadosSolutionPage() {
                         <p className="text-slate-600 font-light text-base leading-relaxed mb-6">
                           {current.desc}
                         </p>
-                        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-3 text-xs text-slate-600">
+                        <div className="p-4 rounded-2xl bg-white/80 border border-slate-200/80 shadow-2xs flex items-center gap-3 text-xs text-slate-600">
                           <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                           <span>Conexão criptografada (TLS 1.3) & Tratamento de Erros</span>
                         </div>

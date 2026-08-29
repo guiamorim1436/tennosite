@@ -41,34 +41,39 @@ export function Methodology() {
   ];
 
   return (
-    <section className="py-32 bg-background">
-      <div className="container mx-auto px-6 lg:px-12 max-w-none">
+    <section className="py-32 bg-white relative overflow-hidden">
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-pink-50/60 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
         <div className="mb-20 max-w-3xl">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-6">
+          <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
+            JORNADA DE ACELERAÇÃO
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             TENNO REVENUE SYSTEM™
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-xl text-slate-500 font-light leading-relaxed">
             Uma jornada prática de 9 meses para transformar sua operação comercial em uma máquina de crescimento previsível. Não entregamos apenas CRM. Entregamos processo, automação e inteligência aplicados ao seu negócio.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-3 gap-10">
           {steps.map((step, idx) => (
-            <div key={idx} className="relative p-8 rounded-[40px] glass-morphism border border-border">
-              <div className="absolute -top-6 left-8 w-16 h-16 rounded-2xl bg-background border border-border flex items-center justify-center shadow-xl">
+            <div key={idx} className="relative p-10 rounded-[40px] glass-card glass-card-hover flex flex-col justify-between">
+              <div className="absolute -top-6 left-8 w-14 h-14 rounded-2xl bg-white/95 border border-slate-200 shadow-lg shadow-slate-200/50 flex items-center justify-center">
                 {step.icon}
               </div>
-              <div className="pt-8">
-                <span className="text-sm font-semibold text-accent uppercase tracking-widest">{step.subtitle}</span>
-                <h3 className="text-2xl font-semibold mt-4 mb-4">{step.title}</h3>
-                <p className="text-muted-foreground mb-8 leading-relaxed">
+              <div className="pt-6">
+                <span className="text-xs font-bold text-pink-600 uppercase tracking-widest block mb-2">{step.subtitle}</span>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">{step.title}</h3>
+                <p className="text-slate-600 font-light text-sm mb-8 leading-relaxed">
                   {step.description}
                 </p>
-                <ul className="space-y-4">
+                <ul className="space-y-3.5 pt-4 border-t border-slate-200/60">
                   {step.features.map((feature, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-                      <span className="text-sm font-semibold">{feature}</span>
+                    <li key={fIdx} className="flex items-start gap-3 text-sm text-slate-700">
+                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pink-600 shrink-0" />
+                      <span className="font-light">{feature}</span>
                     </li>
                   ))}
                 </ul>

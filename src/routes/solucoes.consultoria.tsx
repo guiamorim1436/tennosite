@@ -336,11 +336,10 @@ function ConsultoriaPage() {
             <motion.div
               key={i}
               {...fadeInUp}
-              whileHover={{ scale: 1.01 }}
-              className="p-10 lg:p-12 border border-slate-100 bg-slate-50/50 rounded-[36px] flex flex-col justify-between hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 group"
+              className="p-10 lg:p-12 rounded-[36px] glass-card glass-card-hover flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-pink-600 shadow-sm mb-8 group-hover:bg-pink-600 group-hover:text-white transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-white/90 border border-slate-200/70 flex items-center justify-center text-pink-600 shadow-xs mb-8 group-hover:bg-pink-600 group-hover:text-white transition-colors">
                   {item.icon}
                 </div>
                 <h4 className="text-sm font-bold text-pink-600 mb-3 tracking-wider">
@@ -363,7 +362,7 @@ function ConsultoriaPage() {
                   </ul>
                 </div>
               </div>
-              <div className="mt-auto pt-8 border-t border-slate-100">
+              <div className="mt-auto pt-8 border-t border-slate-200/60">
                 <div className="mb-3">
                   <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                     Objetivo Central

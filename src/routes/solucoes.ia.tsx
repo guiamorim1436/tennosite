@@ -159,8 +159,10 @@ function IaSolutionPage() {
         </section>
 
         {/* 2. COMPARATIVO: BOT AMADOR VS AGENTE COGNITIVO TENNO */}
-        <section className="py-24 lg:py-32 relative bg-slate-50/50 border-b border-slate-100">
-          <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <section className="py-24 lg:py-32 relative bg-white border-b border-slate-100 overflow-hidden">
+          <div className="absolute top-1/2 left-0 w-80 h-80 bg-slate-100/50 rounded-full blur-[130px] pointer-events-none" />
+
+          <div className="container mx-auto px-6 lg:px-12 max-w-6xl relative z-10">
             <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
               <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 EVOLUÇÃO TECNOLÓGICA
@@ -172,9 +174,9 @@ function IaSolutionPage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* Lado A: Bot Amador */}
-              <motion.div {...fadeInUp} className="p-8 lg:p-10 rounded-[32px] bg-white border border-rose-200 shadow-xs relative">
+              <motion.div {...fadeInUp} className="p-8 lg:p-10 rounded-[32px] glass-card border border-rose-200/80 shadow-xs relative">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center text-rose-600">
+                  <div className="w-10 h-10 rounded-xl bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-600">
                     <X className="w-5 h-5" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900">Chatbots Tradicionais de Fluxo Fixo</h3>
@@ -201,9 +203,9 @@ function IaSolutionPage() {
               </motion.div>
 
               {/* Lado B: Agente Tenno */}
-              <motion.div {...fadeInUp} className="p-8 lg:p-10 rounded-[32px] bg-white border border-emerald-300 shadow-xl shadow-slate-100 relative">
+              <motion.div {...fadeInUp} className="p-8 lg:p-10 rounded-[32px] glass-card border border-emerald-300/80 shadow-xl shadow-emerald-950/5 relative">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600">
                     <Check className="w-5 h-5" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900">Agentes Cognitivos Tenno Engine</h3>
@@ -233,8 +235,10 @@ function IaSolutionPage() {
         </section>
 
         {/* 3. COMPONENTE INTERATIVO: SIMULADOR DE EXTRAÇÃO DE PARÂMETROS AO VIVO */}
-        <section id="simulador-ia" className="py-24 lg:py-36 relative border-b border-slate-100">
-          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+        <section id="simulador-ia" className="py-24 lg:py-36 relative border-b border-slate-100 bg-white overflow-hidden">
+          <div className="absolute top-1/2 right-0 w-96 h-96 bg-pink-100/30 rounded-full blur-[150px] pointer-events-none" />
+
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
             <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
               <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 SIMULADOR DE PARSER COGNITIVO
@@ -248,14 +252,14 @@ function IaSolutionPage() {
             </motion.div>
 
             {/* Segmented Control */}
-            <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto p-1.5 bg-slate-100/80 rounded-2xl max-w-2xl mx-auto mb-8 border border-slate-200/60 no-scrollbar">
+            <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto p-1.5 glass-pill rounded-2xl max-w-2xl mx-auto mb-8 no-scrollbar">
               {simulations.map((sim, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveSimulation(idx)}
                   className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
                     activeSimulation === idx
-                      ? "bg-white text-slate-900 shadow-sm border border-slate-200/80"
+                      ? "bg-white text-slate-900 shadow-sm border border-slate-200/90"
                       : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
@@ -275,7 +279,7 @@ function IaSolutionPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -15 }}
                     transition={{ duration: 0.3 }}
-                    className="p-8 lg:p-12 rounded-[36px] bg-white border border-slate-200 shadow-xl shadow-slate-100 relative"
+                    className="p-8 lg:p-12 rounded-[36px] glass-panel relative"
                   >
                     <div className="grid lg:grid-cols-12 gap-8 items-start">
                       {/* Left: WhatsApp Input & Audio Mock */}

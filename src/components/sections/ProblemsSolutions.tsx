@@ -59,24 +59,28 @@ export function ProblemsSolutions() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {items.map((item, idx) => (
-            <div key={idx} className="glass-morphism rounded-3xl p-8 border border-border hover:border-accent/50 transition-all group shadow-sm hover:shadow-xl hover:shadow-accent/5 duration-300">
-              <div className="mb-6">{item.icon}</div>
-              <h3 className="text-2xl font-semibold mb-6">{item.title}</h3>
-              
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center">
-                    <X className="w-4 h-4 text-red-600" />
-                  </div>
-                  <p className="text-muted-foreground text-sm">{item.problem}</p>
+            <div key={idx} className="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between">
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-white/90 border border-slate-200/70 shadow-xs flex items-center justify-center mb-6">
+                  {item.icon}
                 </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">{item.title}</h3>
                 
-                <div className="pt-6 border-t border-border/50">
+                <div className="space-y-6">
                   <div className="flex gap-4">
-                    <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-                      <CheckCircle2 className="w-4 h-4 text-green-600" />
+                    <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-rose-50 border border-rose-100 flex items-center justify-center">
+                      <X className="w-3.5 h-3.5 text-rose-600" />
                     </div>
-                    <p className="font-semibold text-foreground text-sm">{item.solution}</p>
+                    <p className="text-slate-600 text-sm font-light leading-relaxed">{item.problem}</p>
+                  </div>
+                  
+                  <div className="pt-6 border-t border-slate-200/60">
+                    <div className="flex gap-4">
+                      <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                      </div>
+                      <p className="font-semibold text-slate-900 text-sm">{item.solution}</p>
+                    </div>
                   </div>
                 </div>
               </div>

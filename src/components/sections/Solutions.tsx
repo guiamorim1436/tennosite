@@ -21,8 +21,12 @@ export function Solutions() {
   };
 
   return (
-    <section id="solutions" className="py-24 lg:py-36 bg-white text-slate-900">
-      <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+    <section id="solutions" className="py-24 lg:py-36 bg-white text-slate-900 relative overflow-hidden">
+      {/* Subtle Ambient Refraction Blobs */}
+      <div className="absolute top-1/4 -right-40 w-96 h-96 bg-pink-100/40 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 -left-40 w-96 h-96 bg-slate-100/60 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
         <div className="mb-20 max-w-3xl">
           <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
             SUITE DE REVENUE OPERATIONS
@@ -40,10 +44,10 @@ export function Solutions() {
             <Link
               key={solution.slug}
               to={solution.route}
-              className="group p-8 lg:p-10 rounded-[36px] bg-slate-50/70 border border-slate-100 hover:bg-white hover:border-pink-200 transition-all flex flex-col justify-between hover:-translate-y-1 shadow-xs hover:shadow-xl hover:shadow-slate-200/50"
+              className="group p-8 lg:p-10 rounded-[36px] glass-card glass-card-hover flex flex-col justify-between"
             >
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 shadow-xs flex items-center justify-center mb-8 group-hover:bg-pink-600 group-hover:text-white transition-colors">
+                <div className="w-14 h-14 rounded-2xl bg-white/90 border border-slate-200/80 shadow-xs flex items-center justify-center mb-8 group-hover:bg-pink-600 group-hover:text-white transition-colors">
                   {getIcon(solution.slug)}
                 </div>
                 <h2 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-pink-600 transition-colors">

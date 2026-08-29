@@ -309,8 +309,10 @@ function CrmSolutionPage() {
         </section>
 
         {/* 2. SHOWCASE DE PRINTS REAIS DO KOMMO CRM */}
-        <section id="telas-kommo" className="py-24 lg:py-36 relative border-b border-slate-100 bg-slate-50/40">
-          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+        <section id="telas-kommo" className="py-24 lg:py-36 relative border-b border-slate-100 bg-white overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-pink-100/40 rounded-full blur-[160px] pointer-events-none" />
+
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
             <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
               <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 INTERFACE & EXPERIÊNCIA DO USUÁRIO
@@ -324,14 +326,14 @@ function CrmSolutionPage() {
             </motion.div>
 
             {/* Segmented Controls for Screenshots */}
-            <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto p-1.5 bg-slate-200/70 rounded-2xl max-w-5xl mx-auto mb-12 border border-slate-300/50 no-scrollbar">
+            <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto p-2 glass-pill rounded-2xl max-w-5xl mx-auto mb-12 no-scrollbar">
               {realScreenshots.map((item, idx) => (
                 <button
                   key={item.id}
                   onClick={() => setActiveInterfaceTab(idx)}
                   className={`px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-2 ${
                     activeInterfaceTab === idx
-                      ? "bg-white text-slate-900 shadow-sm border border-slate-200"
+                      ? "bg-white text-slate-900 shadow-md shadow-slate-200/60 border border-slate-200/90"
                       : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
@@ -354,7 +356,7 @@ function CrmSolutionPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -15 }}
                     transition={{ duration: 0.3 }}
-                    className="p-8 lg:p-12 rounded-[40px] bg-white border border-slate-200 shadow-2xl shadow-slate-200/60 relative overflow-hidden"
+                    className="p-8 lg:p-12 rounded-[40px] glass-panel relative overflow-hidden"
                   >
                     <div className="grid lg:grid-cols-12 gap-10 items-center">
                       {/* Left: Explanation and Details */}
@@ -426,8 +428,10 @@ function CrmSolutionPage() {
         </section>
 
         {/* 3. AS 4 FALHAS DO CRM AMADOR (BENTO GRID) */}
-        <section className="py-24 lg:py-32 relative bg-white">
-          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+        <section className="py-24 lg:py-32 relative bg-white overflow-hidden">
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-slate-100/60 rounded-full blur-[120px] pointer-events-none" />
+
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
             <motion.div {...fadeInUp} className="max-w-3xl mb-16">
               <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 DIAGNÓSTICO OPERACIONAL
@@ -470,10 +474,10 @@ function CrmSolutionPage() {
                 <motion.div
                   key={i}
                   {...fadeInUp}
-                  className="p-8 rounded-3xl bg-slate-50/60 border border-slate-100 hover:bg-white hover:border-pink-200 hover:shadow-xl hover:shadow-slate-200/40 transition-all flex flex-col justify-between"
+                  className="p-8 rounded-3xl glass-card glass-card-hover flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-2xl bg-pink-50 flex items-center justify-center mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-white/90 border border-slate-200/70 shadow-xs flex items-center justify-center mb-6">
                       {card.icon}
                     </div>
                     <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 mb-2 block">
@@ -504,14 +508,14 @@ function CrmSolutionPage() {
             </motion.div>
 
             {/* Tactile UIverse Segmented Control */}
-            <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto p-1.5 bg-slate-100/80 rounded-2xl max-w-4xl mx-auto mb-8 border border-slate-200/60 no-scrollbar">
+            <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto p-1.5 glass-pill rounded-2xl max-w-4xl mx-auto mb-8 no-scrollbar">
               {pipelineStages.map((stg, idx) => (
                 <button
                   key={stg.id}
                   onClick={() => setActiveStage(idx)}
                   className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-2 ${
                     activeStage === idx
-                      ? "bg-white text-slate-900 shadow-sm border border-slate-200/80"
+                      ? "bg-white text-slate-900 shadow-sm border border-slate-200/90"
                       : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
@@ -529,11 +533,11 @@ function CrmSolutionPage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.3 }}
-                className={`p-8 lg:p-12 rounded-[36px] border ${pipelineStages[activeStage].color} bg-white shadow-xl shadow-slate-100 relative overflow-hidden`}
+                className="p-8 lg:p-12 rounded-[36px] glass-panel relative overflow-hidden"
               >
                 <div className="grid lg:grid-cols-12 gap-8 items-start">
                   <div className="lg:col-span-5">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg text-xs font-semibold uppercase tracking-wider mb-4 border border-slate-200 bg-slate-50 text-slate-700 font-mono">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg text-xs font-semibold uppercase tracking-wider mb-4 border border-slate-200/80 bg-white/90 text-slate-700 font-mono shadow-2xs">
                       <Clock className="w-3.5 h-3.5 text-pink-600" />
                       SLA: {pipelineStages[activeStage].sla}
                     </div>
@@ -546,7 +550,7 @@ function CrmSolutionPage() {
                       {pipelineStages[activeStage].description}
                     </p>
 
-                    <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div className="p-4 rounded-2xl bg-white/80 border border-slate-200/70 shadow-xs">
                       <span className="text-xs uppercase tracking-wider text-slate-400 block mb-1">
                         Meta Operacional da Etapa:
                       </span>
@@ -566,9 +570,9 @@ function CrmSolutionPage() {
                       {pipelineStages[activeStage].triggers.map((trigger, tIdx) => (
                         <div
                           key={tIdx}
-                          className="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50/70 border border-slate-100 hover:border-pink-200 transition-colors"
+                          className="flex items-start gap-3.5 p-4 rounded-2xl bg-white/80 border border-slate-200/70 hover:border-pink-200 transition-colors shadow-2xs"
                         >
-                          <div className="w-6 h-6 rounded-lg bg-pink-100 flex items-center justify-center shrink-0 mt-0.5">
+                          <div className="w-6 h-6 rounded-lg bg-pink-100/80 flex items-center justify-center shrink-0 mt-0.5">
                             <Zap className="w-3.5 h-3.5 text-pink-600" />
                           </div>
                           <span className="text-sm text-slate-700 font-light leading-relaxed">
@@ -585,8 +589,10 @@ function CrmSolutionPage() {
         </section>
 
         {/* 5. COMPONENTE INTERATIVO: ANATOMIA DO LEAD ENRIQUECIDO */}
-        <section className="py-24 lg:py-32 relative bg-white border-t border-slate-100">
-          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+        <section className="py-24 lg:py-32 relative bg-white border-t border-slate-100 overflow-hidden">
+          <div className="absolute top-1/2 -left-40 w-96 h-96 bg-pink-50/70 rounded-full blur-[140px] pointer-events-none" />
+
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div {...fadeInUp}>
                 <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
@@ -600,12 +606,12 @@ function CrmSolutionPage() {
                 </p>
 
                 {/* Tactile Toggle Switch */}
-                <div className="inline-flex p-1 bg-slate-200/80 rounded-full mb-6 border border-slate-300/60">
+                <div className="inline-flex p-1.5 glass-pill rounded-full mb-6">
                   <button
                     onClick={() => setActiveLeadTab('raw')}
                     className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
                       activeLeadTab === 'raw'
-                        ? 'bg-white text-slate-900 shadow-sm'
+                        ? 'bg-white text-slate-900 shadow-sm border border-slate-200/80'
                         : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
@@ -626,10 +632,10 @@ function CrmSolutionPage() {
 
               {/* Lead Card Inspector Mockup */}
               <motion.div {...fadeInUp} className="relative">
-                <div className="p-8 rounded-[36px] bg-slate-50 border border-slate-200 shadow-xl shadow-slate-200/50 relative overflow-hidden">
-                  <div className="flex items-center justify-between border-b border-slate-200 pb-4 mb-6">
+                <div className="p-8 rounded-[36px] glass-panel relative overflow-hidden">
+                  <div className="flex items-center justify-between border-b border-slate-200/70 pb-4 mb-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center font-bold text-pink-600 text-sm">
+                      <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center font-bold text-pink-600 text-sm border border-pink-100">
                         RM
                       </div>
                       <div>
@@ -649,11 +655,11 @@ function CrmSolutionPage() {
 
                   {activeLeadTab === 'raw' ? (
                     <div className="space-y-4 text-sm text-slate-500 font-light">
-                      <div className="p-3.5 rounded-xl bg-white border border-slate-200">
+                      <div className="p-3.5 rounded-xl bg-white/90 border border-slate-200 shadow-2xs">
                         <span className="text-xs text-slate-400 block mb-1">Telefone:</span>
                         (11) 98765-XXXX
                       </div>
-                      <div className="p-3.5 rounded-xl bg-white border border-slate-200">
+                      <div className="p-3.5 rounded-xl bg-white/90 border border-slate-200 shadow-2xs">
                         <span className="text-xs text-slate-400 block mb-1">Mensagem Inicial:</span>
                         "Olá, quero saber o valor."
                       </div>
@@ -664,22 +670,22 @@ function CrmSolutionPage() {
                   ) : (
                     <div className="space-y-3 text-sm">
                       <div className="grid grid-cols-2 gap-3">
-                        <div className="p-3 rounded-xl bg-white border border-slate-200">
+                        <div className="p-3 rounded-xl bg-white/90 border border-slate-200/80 shadow-2xs">
                           <span className="text-[11px] text-slate-400 block mb-0.5">Origem:</span>
                           <span className="text-xs font-semibold text-slate-800">Google Ads • Termo: "kommo crm"</span>
                         </div>
-                        <div className="p-3 rounded-xl bg-white border border-slate-200">
+                        <div className="p-3 rounded-xl bg-white/90 border border-slate-200/80 shadow-2xs">
                           <span className="text-[11px] text-slate-400 block mb-0.5">Tamanho da Equipe:</span>
                           <span className="text-xs font-semibold text-slate-800">18 Vendedores</span>
                         </div>
                       </div>
 
-                      <div className="p-3 rounded-xl bg-white border border-slate-200">
+                      <div className="p-3 rounded-xl bg-white/90 border border-slate-200/80 shadow-2xs">
                         <span className="text-[11px] text-slate-400 block mb-0.5">Dor Principal Declarada:</span>
                         <span className="text-xs font-semibold text-slate-800">Vazamento de leads aos finais de semana e falta de padrão no WhatsApp</span>
                       </div>
 
-                      <div className="p-3 rounded-xl bg-white border border-slate-200">
+                      <div className="p-3 rounded-xl bg-white/90 border border-slate-200/80 shadow-2xs">
                         <span className="text-[11px] text-slate-400 block mb-0.5">Próximo Passo Obrigatório:</span>
                         <span className="text-xs font-semibold text-pink-600 flex items-center gap-1.5">
                           <Clock className="w-3.5 h-3.5" /> Reunião de Diagnóstico (Amanhã às 15:30)
@@ -699,8 +705,10 @@ function CrmSolutionPage() {
         </section>
 
         {/* 6. OS 4 PILARES DA IMPLANTAÇÃO */}
-        <section className="py-24 lg:py-32 relative border-t border-slate-100 bg-slate-50/50">
-          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+        <section className="py-24 lg:py-32 relative border-t border-slate-100 bg-white overflow-hidden">
+          <div className="absolute top-1/3 right-0 w-80 h-80 bg-pink-50/50 rounded-full blur-[130px] pointer-events-none" />
+
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
             <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-20">
               <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 METODOLOGIA DE ENTREGA
@@ -739,9 +747,9 @@ function CrmSolutionPage() {
                 <motion.div
                   key={i}
                   {...fadeInUp}
-                  className="p-8 rounded-3xl bg-white border border-slate-200 hover:shadow-xl hover:shadow-slate-200/40 transition-all relative group"
+                  className="p-8 rounded-3xl glass-card glass-card-hover flex flex-col justify-between group"
                 >
-                  <span className="text-4xl font-black text-slate-200 group-hover:text-pink-600/30 transition-colors mb-6 block">
+                  <span className="text-4xl font-black text-slate-200 group-hover:text-pink-600/40 transition-colors mb-6 block">
                     {col.step}
                   </span>
                   <h3 className="text-xl font-bold text-slate-900 mb-3">{col.title}</h3>
