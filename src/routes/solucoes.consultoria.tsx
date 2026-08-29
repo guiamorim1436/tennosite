@@ -902,5 +902,3 @@ function ConsultoriaPage() {
     </div>
   );
 }
-
-export default ConsultoriaPage;
