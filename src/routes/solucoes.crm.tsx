@@ -19,7 +19,6 @@ import {
   TrendingUp,
   ChevronRight,
   Filter,
-  Flame,
   Check
 } from "lucide-react";
 
@@ -66,8 +65,8 @@ function CrmSolutionPage() {
       id: "entrada",
       name: "01. Entrada do Lead",
       sla: "Instantâneo (< 1 min)",
-      color: "border-blue-500/40 bg-blue-500/5",
-      badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+      color: "border-blue-200 bg-blue-50/40",
+      badgeColor: "bg-blue-50 text-blue-700 border-blue-200",
       description: "Captura omnicanal unificada em tempo real.",
       triggers: [
         "Webhook captura lead do WhatsApp, Meta Ads, Google Ads ou Site",
@@ -81,8 +80,8 @@ function CrmSolutionPage() {
       id: "qualificacao",
       name: "02. Qualificação BANT",
       sla: "Até 4 horas",
-      color: "border-amber-500/40 bg-amber-500/5",
-      badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+      color: "border-amber-200 bg-amber-50/40",
+      badgeColor: "bg-amber-50 text-amber-700 border-amber-200",
       description: "Filtragem criteriosa de perfil, orçamento e autoridade.",
       triggers: [
         "Checklist obrigatório de campos (Faturamento, Nº Vidas/Funcionários, Dor Central)",
@@ -96,8 +95,8 @@ function CrmSolutionPage() {
       id: "proposta",
       name: "03. Apresentação & Proposta",
       sla: "Até 24 horas",
-      color: "border-purple-500/40 bg-purple-500/5",
-      badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+      color: "border-purple-200 bg-purple-50/40",
+      badgeColor: "bg-purple-50 text-purple-700 border-purple-200",
       description: "Envio de proposta estruturada com rastreamento de abertura.",
       triggers: [
         "Integração nativa com gerador de propostas / link rastreado",
@@ -111,8 +110,8 @@ function CrmSolutionPage() {
       id: "negociacao",
       name: "04. Negociação & Decisão",
       sla: "3 a 5 dias",
-      color: "border-pink-500/40 bg-pink-500/5",
-      badgeColor: "bg-pink-500/10 text-pink-400 border-pink-500/20",
+      color: "border-pink-200 bg-pink-50/40",
+      badgeColor: "bg-pink-50 text-pink-700 border-pink-200",
       description: "Cadência de follow-up estruturada sem esquecimentos.",
       triggers: [
         "Bloqueio de avanço sem tarefa de próximo contato definida",
@@ -126,8 +125,8 @@ function CrmSolutionPage() {
       id: "ganho",
       name: "05. Ganho & Passagem de Bastão",
       sla: "Imediato",
-      color: "border-emerald-500/40 bg-emerald-500/5",
-      badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+      color: "border-emerald-200 bg-emerald-50/40",
+      badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
       description: "Sincronização com financeiro, ERP e time de Onboarding.",
       triggers: [
         "Disparo de Webhook para ERP (Bling / Omie / Tiny / TOTVS) emitir contrato e fatura",
@@ -163,15 +162,16 @@ function CrmSolutionPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-['Questrial'] selection:bg-pink-500/30 selection:text-pink-300 overflow-x-hidden">
+    <div className="min-h-screen bg-white text-slate-900 font-['Questrial'] selection:bg-pink-100 selection:text-pink-600 overflow-x-hidden">
       <Header />
 
       <main className="pt-24 lg:pt-32">
         {/* 1. HERO SECTION */}
-        <section className="relative py-20 lg:py-32 overflow-hidden border-b border-slate-800/80">
-          <div className="absolute inset-0 bg-futuristic-grid opacity-20 pointer-events-none" />
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-pink-600/10 rounded-full blur-[140px] pointer-events-none" />
-          
+        <section className="relative py-20 lg:py-32 overflow-hidden border-b border-slate-100">
+          <div className="absolute inset-0 bg-futuristic-grid opacity-30 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pink-50 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+          <div className="absolute top-40 left-0 w-72 h-72 bg-slate-50 rounded-full blur-[100px] -translate-x-1/2 pointer-events-none" />
+
           <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -179,16 +179,16 @@ function CrmSolutionPage() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-4xl mx-auto text-center"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-pink-500/10 text-pink-400 border border-pink-500/20 mb-8">
-                <Award className="w-3.5 h-3.5 text-pink-400" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-pink-50 text-pink-600 border border-pink-100 mb-8">
+                <Award className="w-3.5 h-3.5 text-pink-600" />
                 Partner Oficial Kommo & Metodologia Six Sigma
               </div>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-8">
-                O Kommo CRM estruturado sob a lógica do <span className="text-pink-500">seu processo comercial</span> — não o inverso.
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-8">
+                O Kommo CRM estruturado sob a lógica do <span className="text-pink-600">seu processo comercial</span> — não o inverso.
               </h1>
 
-              <p className="text-lg sm:text-xl text-slate-400 font-light leading-relaxed max-w-3xl mx-auto mb-12">
+              <p className="text-lg sm:text-xl text-slate-500 font-light leading-relaxed max-w-3xl mx-auto mb-12">
                 Desenhamos esteiras de vendas com automações inteligentes, SLAs de atendimento rigorosos e qualificação preditiva para que nenhum lead seja esquecido no funil.
               </p>
 
@@ -199,32 +199,32 @@ function CrmSolutionPage() {
                   href={ctaWhatsApp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-pink-600/25 transition-all"
+                  className="w-full sm:w-auto h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-pink-600/20 transition-all"
                 >
                   Estruturar meu CRM
                   <ArrowRight className="w-5 h-5" />
                 </motion.a>
-                
+
                 <a
                   href="#pipeline-raiox"
-                  className="w-full sm:w-auto h-16 px-8 rounded-full bg-slate-900 border border-slate-700 hover:border-slate-500 text-slate-300 font-medium text-base flex items-center justify-center transition-colors"
+                  className="w-full sm:w-auto h-16 px-8 rounded-full bg-slate-50 border border-slate-200 hover:bg-white text-slate-700 font-semibold text-base flex items-center justify-center transition-colors"
                 >
                   Ver simulação do pipeline
                 </a>
               </div>
 
               {/* Quick Trust Badges */}
-              <div className="mt-14 pt-8 border-t border-slate-800/60 flex flex-wrap justify-center items-center gap-8 text-sm text-slate-400">
+              <div className="mt-14 pt-8 border-t border-slate-100 flex flex-wrap justify-center items-center gap-8 text-sm text-slate-500">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-pink-500" />
+                  <CheckCircle2 className="w-4 h-4 text-pink-600" />
                   <span>+150 Operações Estruturadas</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-pink-500" />
+                  <CheckCircle2 className="w-4 h-4 text-pink-600" />
                   <span>Integração Oficial WhatsApp (WABA)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-pink-500" />
+                  <CheckCircle2 className="w-4 h-4 text-pink-600" />
                   <span>SLA de Atendimento em Minutos</span>
                 </div>
               </div>
@@ -233,16 +233,16 @@ function CrmSolutionPage() {
         </section>
 
         {/* 2. AS 4 FALHAS DO CRM AMADOR (BENTO GRID) */}
-        <section className="py-24 lg:py-32 relative bg-slate-900/40">
+        <section className="py-24 lg:py-32 relative bg-slate-50/50">
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             <motion.div {...fadeInUp} className="max-w-3xl mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-pink-500 mb-3 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 DIAGNÓSTICO OPERACIONAL
               </span>
-              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6">
                 Por que a maioria das empresas falha ao tentar implementar um CRM sozinhas?
               </h2>
-              <p className="text-slate-400 text-lg font-light leading-relaxed">
+              <p className="text-slate-500 text-lg font-light leading-relaxed">
                 Comprar a licença do software é a parte fácil. O problema é que a tecnologia sem engenharia de processos apenas acelera a desorganização interna.
               </p>
             </motion.div>
@@ -250,25 +250,25 @@ function CrmSolutionPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
-                  icon: <AlertTriangle className="w-6 h-6 text-pink-400" />,
+                  icon: <AlertTriangle className="w-6 h-6 text-pink-600" />,
                   title: "O Funil Fantasma",
                   desc: "Dezenas de cards acumulados na mesma etapa sem prazo, sem dono claro e sem histórico de contato registrado.",
                   tag: "Perda de Leads"
                 },
                 {
-                  icon: <Clock className="w-6 h-6 text-pink-400" />,
+                  icon: <Clock className="w-6 h-6 text-pink-600" />,
                   title: "O Vendedor Digitador",
                   desc: "Seu time de vendas gasta até 40% do expediente preenchendo planilhas manuais em vez de negociar e fechar vendas.",
                   tag: "Desperdício de Tempo"
                 },
                 {
-                  icon: <Filter className="w-6 h-6 text-pink-400" />,
+                  icon: <Filter className="w-6 h-6 text-pink-600" />,
                   title: "Follow-up Esquecido",
                   desc: "68% dos leads que pedem orçamento esfriam simplesmente porque o vendedor esqueceu de fazer o 2º ou 3º contato.",
                   tag: "Quebra de Conversão"
                 },
                 {
-                  icon: <TrendingUp className="w-6 h-6 text-pink-400" />,
+                  icon: <TrendingUp className="w-6 h-6 text-pink-600" />,
                   title: "Gestão no Escuro",
                   desc: "Relatórios distorcidos, dados duplicados e reuniões de diretoria baseadas em palpites e intuição.",
                   tag: "Falta de Previsibilidade"
@@ -277,17 +277,17 @@ function CrmSolutionPage() {
                 <motion.div
                   key={i}
                   {...fadeInUp}
-                  className="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-pink-500/40 transition-all flex flex-col justify-between"
+                  className="p-8 rounded-3xl bg-white border border-slate-100 hover:border-pink-200 hover:shadow-xl hover:shadow-slate-200/40 transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-pink-50 flex items-center justify-center mb-6">
                       {card.icon}
                     </div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-pink-400/80 mb-2 block">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-pink-600 mb-2 block">
                       {card.tag}
                     </span>
-                    <h3 className="text-xl font-bold text-white mb-3">{card.title}</h3>
-                    <p className="text-sm text-slate-400 font-light leading-relaxed">{card.desc}</p>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">{card.title}</h3>
+                    <p className="text-sm text-slate-500 font-light leading-relaxed">{card.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -296,16 +296,16 @@ function CrmSolutionPage() {
         </section>
 
         {/* 3. COMPONENTE INTERATIVO: VISUALIZADOR DE PIPELINE EM RAIO-X */}
-        <section id="pipeline-raiox" className="py-24 lg:py-36 relative border-t border-slate-800">
+        <section id="pipeline-raiox" className="py-24 lg:py-36 relative border-t border-slate-100">
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-pink-500 mb-3 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 ARQUITETURA DE AUTOMAÇÃO
               </span>
-              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6">
                 Esteira Kommo em Modo "Raio-X"
               </h2>
-              <p className="text-slate-400 text-lg font-light leading-relaxed">
+              <p className="text-slate-500 text-lg font-light leading-relaxed">
                 Clique nas etapas do pipeline abaixo para inspecionar os gatilhos, automações e regras de SLA que a Tenno estrutura em cada fase da venda.
               </p>
             </motion.div>
@@ -318,11 +318,11 @@ function CrmSolutionPage() {
                   onClick={() => setActiveStage(idx)}
                   className={`px-5 py-3 rounded-2xl text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-2.5 border ${
                     activeStage === idx
-                      ? "bg-pink-600 text-white border-pink-500 shadow-lg shadow-pink-600/20"
-                      : "bg-slate-900 text-slate-400 border-slate-800 hover:border-slate-700 hover:text-white"
+                      ? "bg-pink-600 text-white border-pink-600 shadow-md shadow-pink-600/20"
+                      : "bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:text-slate-900"
                   }`}
                 >
-                  <span className={`w-2 h-2 rounded-full ${activeStage === idx ? "bg-white" : "bg-slate-600"}`} />
+                  <span className={`w-2 h-2 rounded-full ${activeStage === idx ? "bg-white" : "bg-slate-400"}`} />
                   {stg.name}
                 </button>
               ))}
@@ -336,28 +336,28 @@ function CrmSolutionPage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.3 }}
-                className={`p-8 lg:p-12 rounded-[36px] border ${pipelineStages[activeStage].color} bg-slate-900/90 backdrop-blur-xl relative overflow-hidden`}
+                className={`p-8 lg:p-12 rounded-[36px] border ${pipelineStages[activeStage].color} bg-white shadow-xl shadow-slate-100 relative overflow-hidden`}
               >
                 <div className="grid lg:grid-cols-12 gap-8 items-start">
                   <div className="lg:col-span-5">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border bg-slate-800 text-slate-300">
-                      <Clock className="w-3.5 h-3.5 text-pink-400" />
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border bg-white text-slate-700 shadow-xs">
+                      <Clock className="w-3.5 h-3.5 text-pink-600" />
                       SLA Recomendado: {pipelineStages[activeStage].sla}
                     </div>
 
-                    <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4">
                       {pipelineStages[activeStage].name}
                     </h3>
 
-                    <p className="text-slate-300 font-light text-base leading-relaxed mb-6">
+                    <p className="text-slate-600 font-light text-base leading-relaxed mb-6">
                       {pipelineStages[activeStage].description}
                     </p>
 
-                    <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
+                    <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
                       <span className="text-xs uppercase tracking-wider text-slate-400 block mb-1">
                         Meta Operacional da Etapa:
                       </span>
-                      <span className="text-sm font-semibold text-emerald-400 flex items-center gap-2">
+                      <span className="text-sm font-semibold text-emerald-600 flex items-center gap-2">
                         <TrendingUp className="w-4 h-4" />
                         {pipelineStages[activeStage].kpi}
                       </span>
@@ -365,7 +365,7 @@ function CrmSolutionPage() {
                   </div>
 
                   <div className="lg:col-span-7">
-                    <span className="text-xs font-bold uppercase tracking-widest text-pink-400 block mb-4">
+                    <span className="text-xs font-bold uppercase tracking-widest text-pink-600 block mb-4">
                       GATILHOS E AUTOMAÇÕES ATIVAS (TENNO ENGINE)
                     </span>
 
@@ -373,12 +373,12 @@ function CrmSolutionPage() {
                       {pipelineStages[activeStage].triggers.map((trigger, tIdx) => (
                         <div
                           key={tIdx}
-                          className="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-950/80 border border-slate-800/90 hover:border-pink-500/30 transition-colors"
+                          className="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50/70 border border-slate-100 hover:border-pink-200 transition-colors"
                         >
-                          <div className="w-6 h-6 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                            <Zap className="w-3.5 h-3.5 text-pink-400" />
+                          <div className="w-6 h-6 rounded-lg bg-pink-100 flex items-center justify-center shrink-0 mt-0.5">
+                            <Zap className="w-3.5 h-3.5 text-pink-600" />
                           </div>
-                          <span className="text-sm text-slate-200 font-light leading-relaxed">
+                          <span className="text-sm text-slate-700 font-light leading-relaxed">
                             {trigger}
                           </span>
                         </div>
@@ -392,17 +392,17 @@ function CrmSolutionPage() {
         </section>
 
         {/* 4. COMPONENTE INTERATIVO: ANATOMIA DO LEAD ENRIQUECIDO */}
-        <section className="py-24 lg:py-32 relative bg-slate-900/30 border-t border-slate-800">
+        <section className="py-24 lg:py-32 relative bg-slate-50/50 border-t border-slate-100">
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div {...fadeInUp}>
-                <span className="text-xs font-bold uppercase tracking-widest text-pink-500 mb-3 block">
+                <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                   QUALIDADE DE DADOS
                 </span>
-                <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+                <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6">
                   A diferença entre um "contato solto" e uma oportunidade pronta para fechar.
                 </h2>
-                <p className="text-slate-400 text-lg font-light leading-relaxed mb-8">
+                <p className="text-slate-500 text-lg font-light leading-relaxed mb-8">
                   No Kommo CRM estruturado pela Tenno, cada card de negócio entrega ao vendedor o contexto completo de dor, orçamento, autoridade e histórico prévio antes mesmo da primeira ligação.
                 </p>
 
@@ -411,8 +411,8 @@ function CrmSolutionPage() {
                     onClick={() => setActiveLeadTab('raw')}
                     className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all border ${
                       activeLeadTab === 'raw'
-                        ? 'bg-slate-800 text-white border-slate-600'
-                        : 'bg-transparent text-slate-400 border-slate-800 hover:text-white'
+                        ? 'bg-slate-900 text-white border-slate-900'
+                        : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900'
                     }`}
                   >
                     Lead sem Estrutura (Cru)
@@ -421,8 +421,8 @@ function CrmSolutionPage() {
                     onClick={() => setActiveLeadTab('tenno')}
                     className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all border ${
                       activeLeadTab === 'tenno'
-                        ? 'bg-pink-600 text-white border-pink-500 shadow-lg shadow-pink-600/20'
-                        : 'bg-transparent text-slate-400 border-slate-800 hover:text-white'
+                        ? 'bg-pink-600 text-white border-pink-600 shadow-md shadow-pink-600/20'
+                        : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900'
                     }`}
                   >
                     Lead Estruturado Tenno
@@ -432,68 +432,68 @@ function CrmSolutionPage() {
 
               {/* Lead Card Inspector Mockup */}
               <motion.div {...fadeInUp} className="relative">
-                <div className="p-8 rounded-[36px] bg-slate-900 border border-slate-800 shadow-2xl relative overflow-hidden">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                <div className="p-8 rounded-[36px] bg-white border border-slate-100 shadow-xl shadow-slate-200/50 relative overflow-hidden">
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-pink-500 text-sm">
+                      <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center font-bold text-pink-600 text-sm">
                         RM
                       </div>
                       <div>
-                        <div className="text-base font-bold text-white">Roberto Martins</div>
-                        <div className="text-xs text-slate-400">Diretor Comercial • Grupo Alfa B2B</div>
+                        <div className="text-base font-bold text-slate-900">Roberto Martins</div>
+                        <div className="text-xs text-slate-500">Diretor Comercial • Grupo Alfa B2B</div>
                       </div>
                     </div>
 
                     <span className={`text-xs px-3 py-1 rounded-full font-bold uppercase ${
                       activeLeadTab === 'tenno'
-                        ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                        : 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
+                        ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                        : 'bg-amber-50 text-amber-700 border border-amber-200'
                     }`}>
                       {activeLeadTab === 'tenno' ? 'SQL • Score 94/100' : 'Lead Desconhecido'}
                     </span>
                   </div>
 
                   {activeLeadTab === 'raw' ? (
-                    <div className="space-y-4 text-sm text-slate-400 font-light">
-                      <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
-                        <span className="text-xs text-slate-500 block mb-1">Telefone:</span>
+                    <div className="space-y-4 text-sm text-slate-500 font-light">
+                      <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+                        <span className="text-xs text-slate-400 block mb-1">Telefone:</span>
                         (11) 98765-XXXX
                       </div>
-                      <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
-                        <span className="text-xs text-slate-500 block mb-1">Mensagem Inicial:</span>
+                      <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+                        <span className="text-xs text-slate-400 block mb-1">Mensagem Inicial:</span>
                         "Olá, quero saber o valor."
                       </div>
-                      <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300">
+                      <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700">
                         ⚠️ Sem informações de faturamento, tamanho de time ou histórico de campanhas. Vendedor entra cego na negociação.
                       </div>
                     </div>
                   ) : (
                     <div className="space-y-3 text-sm">
                       <div className="grid grid-cols-2 gap-3">
-                        <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
-                          <span className="text-[11px] text-slate-500 block mb-0.5">Origem:</span>
-                          <span className="text-xs font-semibold text-slate-200">Google Ads • Termo: "kommo crm"</span>
+                        <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                          <span className="text-[11px] text-slate-400 block mb-0.5">Origem:</span>
+                          <span className="text-xs font-semibold text-slate-800">Google Ads • Termo: "kommo crm"</span>
                         </div>
-                        <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
-                          <span className="text-[11px] text-slate-500 block mb-0.5">Tamanho da Equipe:</span>
-                          <span className="text-xs font-semibold text-slate-200">18 Vendedores</span>
+                        <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                          <span className="text-[11px] text-slate-400 block mb-0.5">Tamanho da Equipe:</span>
+                          <span className="text-xs font-semibold text-slate-800">18 Vendedores</span>
                         </div>
                       </div>
 
-                      <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
-                        <span className="text-[11px] text-slate-500 block mb-0.5">Dor Principal Declarada:</span>
-                        <span className="text-xs font-semibold text-slate-200">Vazamento de leads aos finais de semana e falta de padrão no WhatsApp</span>
+                      <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                        <span className="text-[11px] text-slate-400 block mb-0.5">Dor Principal Declarada:</span>
+                        <span className="text-xs font-semibold text-slate-800">Vazamento de leads aos finais de semana e falta de padrão no WhatsApp</span>
                       </div>
 
-                      <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
-                        <span className="text-[11px] text-slate-500 block mb-0.5">Próximo Passo Obrigatório:</span>
-                        <span className="text-xs font-semibold text-pink-400 flex items-center gap-1.5">
+                      <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                        <span className="text-[11px] text-slate-400 block mb-0.5">Próximo Passo Obrigatório:</span>
+                        <span className="text-xs font-semibold text-pink-600 flex items-center gap-1.5">
                           <Clock className="w-3.5 h-3.5" /> Reunião de Diagnóstico (Amanhã às 15:30)
                         </span>
                       </div>
 
-                      <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-medium flex items-center gap-2">
-                        <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-medium flex items-center gap-2">
+                        <Check className="w-4 h-4 text-emerald-600 shrink-0" />
                         Card enriquecido automaticamente pela Tenno Engine em 3 segundos.
                       </div>
                     </div>
@@ -505,16 +505,16 @@ function CrmSolutionPage() {
         </section>
 
         {/* 5. OS 4 PILARES DA IMPLANTAÇÃO */}
-        <section className="py-24 lg:py-32 relative border-t border-slate-800">
+        <section className="py-24 lg:py-32 relative border-t border-slate-100">
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-20">
-              <span className="text-xs font-bold uppercase tracking-widest text-pink-500 mb-3 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 METODOLOGIA DE ENTREGA
               </span>
-              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6">
                 Como implantamos o Kommo CRM na sua empresa
               </h2>
-              <p className="text-slate-400 text-lg font-light leading-relaxed">
+              <p className="text-slate-500 text-lg font-light leading-relaxed">
                 Um processo consultivo de 4 semanas com foco total em adoção pela equipe e retorno de investimento.
               </p>
             </motion.div>
@@ -545,13 +545,13 @@ function CrmSolutionPage() {
                 <motion.div
                   key={i}
                   {...fadeInUp}
-                  className="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 hover:border-pink-500/40 transition-all relative group"
+                  className="p-8 rounded-3xl bg-slate-50/60 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-slate-200/40 transition-all relative group"
                 >
-                  <span className="text-4xl font-black text-slate-800 group-hover:text-pink-500/30 transition-colors mb-6 block">
+                  <span className="text-4xl font-black text-slate-200 group-hover:text-pink-600/30 transition-colors mb-6 block">
                     {col.step}
                   </span>
-                  <h3 className="text-xl font-bold text-white mb-3">{col.title}</h3>
-                  <p className="text-sm text-slate-400 font-light leading-relaxed">{col.desc}</p>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{col.title}</h3>
+                  <p className="text-sm text-slate-500 font-light leading-relaxed">{col.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -559,13 +559,13 @@ function CrmSolutionPage() {
         </section>
 
         {/* 6. FAQ DE ALTA PERFORMANCE (SEO SCHEMA) */}
-        <section className="py-24 lg:py-32 relative bg-slate-900/30 border-t border-slate-800">
+        <section className="py-24 lg:py-32 relative bg-slate-50/50 border-t border-slate-100">
           <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
             <motion.div {...fadeInUp} className="text-center mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-pink-500 mb-3 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 DÚVIDAS FREQUENTES
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
                 Perguntas sobre Implementação de CRM
               </h2>
             </motion.div>
@@ -574,17 +574,17 @@ function CrmSolutionPage() {
               {faqs.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden transition-colors"
+                  className="rounded-2xl bg-white border border-slate-200/80 overflow-hidden shadow-xs"
                 >
                   <button
                     onClick={() => setFaqOpen(faqOpen === idx ? null : idx)}
-                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-white hover:text-pink-400 transition-colors"
+                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:text-pink-600 transition-colors"
                   >
                     <span>{faq.q}</span>
-                    <ChevronDown className={`w-5 h-5 shrink-0 transition-transform ${faqOpen === idx ? "rotate-180 text-pink-500" : "text-slate-500"}`} />
+                    <ChevronDown className={`w-5 h-5 shrink-0 transition-transform ${faqOpen === idx ? "rotate-180 text-pink-600" : "text-slate-400"}`} />
                   </button>
                   {faqOpen === idx && (
-                    <div className="px-6 pb-6 text-slate-400 font-light text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+                    <div className="px-6 pb-6 text-slate-600 font-light text-sm leading-relaxed border-t border-slate-100 pt-4">
                       {faq.a}
                     </div>
                   )}
@@ -595,7 +595,7 @@ function CrmSolutionPage() {
         </section>
 
         {/* 7. BOTTOM CTA */}
-        <section className="py-24 lg:py-36 relative overflow-hidden border-t border-slate-800">
+        <section className="py-24 lg:py-36 relative overflow-hidden bg-slate-900 text-white">
           <div className="absolute inset-0 bg-pink-600/10 pointer-events-none" />
           <div className="container mx-auto px-6 lg:px-12 max-w-5xl relative z-10 text-center">
             <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-8">
@@ -619,14 +619,14 @@ function CrmSolutionPage() {
         </section>
       </main>
 
-      <footer className="py-16 border-t border-slate-800 bg-slate-950 text-slate-400 text-sm">
+      <footer className="py-16 border-t border-slate-100 bg-white text-slate-500 text-sm">
         <div className="container mx-auto px-6 lg:px-12 max-w-7xl flex flex-col sm:flex-row justify-between items-center gap-6">
-          <div className="font-['Questrial'] text-2xl font-bold text-white">
-            Tenno<span className="text-pink-500">.</span>
+          <div className="font-['Questrial'] text-2xl font-bold text-slate-900">
+            Tenno<span className="text-pink-600">.</span>
           </div>
           <p>© 2026 Tenno Revenue System. Todos os direitos reservados.</p>
           <div className="flex gap-6">
-            <a href="mailto:contato@tennohub.com.br" className="hover:text-pink-400 transition-colors">contato@tennohub.com.br</a>
+            <a href="mailto:contato@tennohub.com.br" className="hover:text-pink-600 transition-colors">contato@tennohub.com.br</a>
           </div>
         </div>
       </footer>

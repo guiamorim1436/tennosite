@@ -26,20 +26,20 @@ export const Route = createFileRoute("/solucoes/")({
 
 function SolucoesPage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-['Questrial'] selection:bg-pink-500/30">
+    <div className="min-h-screen bg-white text-slate-900 font-['Questrial'] selection:bg-pink-100 selection:text-pink-600">
       <Header />
       <main className="pt-20">
         <Solutions />
       </main>
       
-      <footer className="py-16 bg-slate-950 border-t border-slate-800 text-slate-400 text-sm">
+      <footer className="py-16 bg-white border-t border-slate-100 text-slate-500 text-sm">
         <div className="container mx-auto px-6 lg:px-12 max-w-7xl flex flex-col sm:flex-row justify-between items-center gap-6">
-          <div className="font-['Questrial'] text-2xl font-bold text-white">
-            Tenno<span className="text-pink-500">.</span>
+          <div className="font-['Questrial'] text-2xl font-bold text-slate-900">
+            Tenno<span className="text-pink-600">.</span>
           </div>
           <p>© 2026 Tenno Revenue System. Todos os direitos reservados.</p>
           <div className="flex gap-6">
-            <a href="mailto:contato@tennohub.com.br" className="hover:text-pink-400 transition-colors">contato@tennohub.com.br</a>
+            <a href="mailto:contato@tennohub.com.br" className="hover:text-pink-600 transition-colors">contato@tennohub.com.br</a>
           </div>
         </div>
       </footer>

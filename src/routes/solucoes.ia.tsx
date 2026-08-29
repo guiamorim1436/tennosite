@@ -114,14 +114,14 @@ function IaSolutionPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-['Questrial'] selection:bg-pink-500/30 selection:text-pink-300 overflow-x-hidden">
+    <div className="min-h-screen bg-white text-slate-900 font-['Questrial'] selection:bg-pink-100 selection:text-pink-600 overflow-x-hidden">
       <Header />
 
       <main className="pt-24 lg:pt-32">
         {/* 1. HERO SECTION */}
-        <section className="relative py-20 lg:py-32 overflow-hidden border-b border-slate-800/80">
-          <div className="absolute inset-0 bg-futuristic-grid opacity-20 pointer-events-none" />
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-pink-600/10 rounded-full blur-[140px] pointer-events-none" />
+        <section className="relative py-20 lg:py-32 overflow-hidden border-b border-slate-100">
+          <div className="absolute inset-0 bg-futuristic-grid opacity-30 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pink-50 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
 
           <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-7xl text-center">
             <motion.div
@@ -130,16 +130,16 @@ function IaSolutionPage() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-4xl mx-auto"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-pink-500/10 text-pink-400 border border-pink-500/20 mb-8">
-                <Bot className="w-3.5 h-3.5 text-pink-400" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-pink-50 text-pink-600 border border-pink-100 mb-8">
+                <Bot className="w-3.5 h-3.5 text-pink-600" />
                 Agentes Cognitivos & IA Embarcada no Kommo CRM
               </div>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-8">
-                Sua empresa não perde vendas porque o produto é ruim. <span className="text-pink-500">Perde porque demora horas para responder.</span>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-8">
+                Sua empresa não perde vendas porque o produto é ruim. <span className="text-pink-600">Perde porque demora horas para responder.</span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-slate-400 font-light leading-relaxed max-w-3xl mx-auto mb-12">
+              <p className="text-lg sm:text-xl text-slate-500 font-light leading-relaxed max-w-3xl mx-auto mb-12">
                 Agentes de Inteligência Artificial treinados nas regras do seu negócio para atender, qualificar leads com critérios BANT e agendar reuniões no WhatsApp em menos de 15 segundos — 24 horas por dia.
               </p>
 
@@ -150,7 +150,7 @@ function IaSolutionPage() {
                   href={ctaWhatsApp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-pink-600/25 transition-all"
+                  className="w-full sm:w-auto h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-pink-600/20 transition-all"
                 >
                   Conhecer Agentes de IA
                   <ArrowRight className="w-5 h-5" />
@@ -158,7 +158,7 @@ function IaSolutionPage() {
 
                 <a
                   href="#simulador-ia"
-                  className="w-full sm:w-auto h-16 px-8 rounded-full bg-slate-900 border border-slate-700 hover:border-slate-500 text-slate-300 font-medium text-base flex items-center justify-center transition-colors"
+                  className="w-full sm:w-auto h-16 px-8 rounded-full bg-slate-50 border border-slate-200 hover:bg-white text-slate-700 font-semibold text-base flex items-center justify-center transition-colors"
                 >
                   Testar simulador ao vivo
                 </a>
@@ -168,71 +168,71 @@ function IaSolutionPage() {
         </section>
 
         {/* 2. COMPARATIVO: BOT AMADOR VS AGENTE COGNITIVO TENNO */}
-        <section className="py-24 lg:py-32 relative bg-slate-900/40 border-b border-slate-800">
+        <section className="py-24 lg:py-32 relative bg-slate-50/50 border-b border-slate-100">
           <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
             <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-pink-500 mb-3 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 EVOLUÇÃO TECNOLÓGICA
               </span>
-              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6">
                 Chatbot Genérico vs. Agente Comercial Tenno
               </h2>
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* Lado A: Bot Amador */}
-              <motion.div {...fadeInUp} className="p-8 lg:p-10 rounded-[32px] bg-slate-900/60 border border-rose-500/20 relative">
+              <motion.div {...fadeInUp} className="p-8 lg:p-10 rounded-[32px] bg-white border border-rose-200 shadow-xs relative">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-400">
+                  <div className="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center text-rose-600">
                     <X className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Chatbots Tradicionais de Fluxo Fixo</h3>
+                  <h3 className="text-xl font-bold text-slate-900">Chatbots Tradicionais de Fluxo Fixo</h3>
                 </div>
 
-                <ul className="space-y-4 text-sm text-slate-400 font-light">
+                <ul className="space-y-4 text-sm text-slate-500 font-light">
                   <li className="flex items-start gap-3">
-                    <span className="text-rose-400 font-bold">✕</span>
+                    <span className="text-rose-500 font-bold">✕</span>
                     <span>Forçam o cliente a digitar números em menus engessados ("Digite 1 para vendas").</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-rose-400 font-bold">✕</span>
+                    <span className="text-rose-500 font-bold">✕</span>
                     <span>Travam completamente quando o cliente envia áudios ou frases fora do script.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-rose-400 font-bold">✕</span>
+                    <span className="text-rose-500 font-bold">✕</span>
                     <span>Não entendem contexto nem conseguem contornar dúvidas sobre preço e diferenciais.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-rose-400 font-bold">✕</span>
+                    <span className="text-rose-500 font-bold">✕</span>
                     <span>Criam cards vazios e desorganizados no CRM sem nenhuma triagem real.</span>
                   </li>
                 </ul>
               </motion.div>
 
               {/* Lado B: Agente Tenno */}
-              <motion.div {...fadeInUp} className="p-8 lg:p-10 rounded-[32px] bg-slate-900 border border-emerald-500/30 shadow-2xl relative">
+              <motion.div {...fadeInUp} className="p-8 lg:p-10 rounded-[32px] bg-white border border-emerald-300 shadow-xl shadow-slate-100 relative">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
                     <Check className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Agentes Cognitivos Tenno Engine</h3>
+                  <h3 className="text-xl font-bold text-slate-900">Agentes Cognitivos Tenno Engine</h3>
                 </div>
 
-                <ul className="space-y-4 text-sm text-slate-300 font-light">
+                <ul className="space-y-4 text-sm text-slate-700 font-light">
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     <span>Processam áudios, textos informais e gírias com fluidez e naturalidade humana.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     <span>Qualificam orçamento, porte da empresa e timing de compra com metodologia BANT.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     <span>Consultam a base de conhecimento restrita da empresa para sanar dúvidas sem alucinações.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     <span>Agendam reuniões na agenda do vendedor e atualizam campos no Kommo CRM em tempo real.</span>
                   </li>
                 </ul>
@@ -242,16 +242,16 @@ function IaSolutionPage() {
         </section>
 
         {/* 3. COMPONENTE INTERATIVO: SIMULADOR DE EXTRAÇÃO DE PARÂMETROS AO VIVO */}
-        <section id="simulador-ia" className="py-24 lg:py-36 relative border-b border-slate-800">
+        <section id="simulador-ia" className="py-24 lg:py-36 relative border-b border-slate-100">
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-pink-500 mb-3 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 SIMULADOR DE PARSER COGNITIVO
               </span>
-              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6">
                 Como a IA Processa Mensagens em Tempo Real
               </h2>
-              <p className="text-slate-400 text-lg font-light leading-relaxed">
+              <p className="text-slate-500 text-lg font-light leading-relaxed">
                 Selecione um dos cenários reais abaixo para ver como o motor de IA da Tenno extrai os parâmetros comerciais de uma mensagem informal e orquestra a ação no Kommo CRM.
               </p>
             </motion.div>
@@ -264,8 +264,8 @@ function IaSolutionPage() {
                   onClick={() => setActiveSimulation(idx)}
                   className={`px-5 py-3 rounded-2xl text-xs sm:text-sm font-semibold transition-all border whitespace-nowrap ${
                     activeSimulation === idx
-                      ? "bg-pink-600 text-white border-pink-500 shadow-lg shadow-pink-600/20"
-                      : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
+                      ? "bg-pink-600 text-white border-pink-600 shadow-md shadow-pink-600/20"
+                      : "bg-white text-slate-600 border-slate-200 hover:text-slate-900"
                   }`}
                 >
                   {sim.title.split(':')[0]}
@@ -284,7 +284,7 @@ function IaSolutionPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -15 }}
                     transition={{ duration: 0.3 }}
-                    className="p-8 lg:p-12 rounded-[36px] bg-slate-900 border border-slate-800 shadow-2xl relative"
+                    className="p-8 lg:p-12 rounded-[36px] bg-white border border-slate-200 shadow-xl shadow-slate-100 relative"
                   >
                     <div className="grid lg:grid-cols-12 gap-8 items-start">
                       {/* Left: WhatsApp Input & Audio Mock */}
@@ -293,16 +293,16 @@ function IaSolutionPage() {
                           <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2">
                             Mensagem Enviada pelo Lead (WhatsApp):
                           </span>
-                          <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 text-sm text-slate-200 leading-relaxed">
+                          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-sm text-slate-800 leading-relaxed">
                             "{currentSim.input}"
                           </div>
                         </div>
 
                         <div>
-                          <span className="text-xs font-bold uppercase tracking-wider text-pink-400 block mb-2">
+                          <span className="text-xs font-bold uppercase tracking-wider text-pink-600 block mb-2">
                             Resposta Gerada pelo Agente Tenno (Tempo: 4s):
                           </span>
-                          <div className="p-4 rounded-2xl bg-pink-600/10 border border-pink-500/30 text-sm text-pink-200 leading-relaxed">
+                          <div className="p-4 rounded-2xl bg-pink-50 border border-pink-200 text-sm text-pink-900 leading-relaxed font-medium">
                             "{currentSim.responseAudio}"
                           </div>
                         </div>
@@ -310,9 +310,9 @@ function IaSolutionPage() {
 
                       {/* Right: Extracted Parameters & Kommo Action */}
                       <div className="lg:col-span-6">
-                        <div className="rounded-2xl bg-slate-950 border border-slate-800 p-5 shadow-inner">
-                          <div className="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-4 text-xs">
-                            <span className="text-slate-400 font-bold flex items-center gap-2">
+                        <div className="rounded-2xl bg-slate-900 border border-slate-800 p-5 shadow-inner">
+                          <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4 text-xs">
+                            <span className="text-slate-300 font-bold flex items-center gap-2">
                               <Terminal className="w-4 h-4 text-pink-500" />
                               Extração Estruturada & Gatilhos no CRM
                             </span>
@@ -321,16 +321,16 @@ function IaSolutionPage() {
 
                           <div className="space-y-2.5 text-xs">
                             <div className="flex justify-between">
-                              <span className="text-slate-500">Intenção Identificada:</span>
+                              <span className="text-slate-400">Intenção Identificada:</span>
                               <span className="font-mono text-pink-400 font-bold">{currentSim.extracted.intencao}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-slate-500">Perfil / Segmento:</span>
-                              <span className="text-slate-300">{currentSim.extracted.perfil_empresa || currentSim.extracted.porte || currentSim.extracted.sistema_citado}</span>
+                              <span className="text-slate-400">Perfil / Segmento:</span>
+                              <span className="text-slate-200">{currentSim.extracted.perfil_empresa || currentSim.extracted.porte || currentSim.extracted.sistema_citado}</span>
                             </div>
-                            <div className="pt-3 border-t border-slate-800/80">
-                              <span className="text-slate-400 font-bold block mb-1.5">Ação Automática Disparada no Kommo:</span>
-                              <p className="text-slate-300 font-light leading-relaxed">
+                            <div className="pt-3 border-t border-slate-800">
+                              <span className="text-slate-300 font-bold block mb-1.5">Ação Automática Disparada no Kommo:</span>
+                              <p className="text-slate-200 font-light leading-relaxed">
                                 {currentSim.extracted.acao_executada_kommo}
                               </p>
                             </div>
@@ -346,13 +346,13 @@ function IaSolutionPage() {
         </section>
 
         {/* 4. OS 3 MÓDULOS DE IA EMBARCADA */}
-        <section className="py-24 lg:py-32 relative bg-slate-900/40 border-b border-slate-800">
+        <section className="py-24 lg:py-32 relative bg-slate-50/50 border-b border-slate-100">
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-pink-500 mb-3 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 SUITE DE RECURSOS
               </span>
-              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6">
                 Inteligência Comercial em 3 Dimensões
               </h2>
             </motion.div>
@@ -360,17 +360,17 @@ function IaSolutionPage() {
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  icon: <MessageSquare className="w-6 h-6 text-pink-400" />,
+                  icon: <MessageSquare className="w-6 h-6 text-pink-600" />,
                   title: "SDR de WhatsApp 24/7",
                   desc: "Agentes que respondem em 15 segundos, qualificam dores e agendam reuniões diretamente na agenda do vendedor sem intervenção humana."
                 },
                 {
-                  icon: <Cpu className="w-6 h-6 text-pink-400" />,
+                  icon: <Cpu className="w-6 h-6 text-pink-600" />,
                   title: "Lead Scoring Preditivo",
                   desc: "Algoritmos que analisam o comportamento do lead em tempo real para priorizar os contatos que possuem maior probabilidade estatística de compra."
                 },
                 {
-                  icon: <Zap className="w-6 h-6 text-pink-400" />,
+                  icon: <Zap className="w-6 h-6 text-pink-600" />,
                   title: "Transcrição & Resumo de Áudios",
                   desc: "IA que escuta áudios e chamadas do vendedor, extrai as objeções centrais e gera anotações executivas resumidas no card do Kommo CRM."
                 }
@@ -378,13 +378,13 @@ function IaSolutionPage() {
                 <motion.div
                   key={idx}
                   {...fadeInUp}
-                  className="p-8 rounded-3xl bg-slate-900 border border-slate-800 hover:border-pink-500/40 transition-all"
+                  className="p-8 rounded-3xl bg-white border border-slate-100 hover:border-pink-200 hover:shadow-xl hover:shadow-slate-200/40 transition-all"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-pink-50 flex items-center justify-center mb-6">
                     {mod.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{mod.title}</h3>
-                  <p className="text-sm text-slate-400 font-light leading-relaxed">{mod.desc}</p>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{mod.title}</h3>
+                  <p className="text-sm text-slate-500 font-light leading-relaxed">{mod.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -392,13 +392,13 @@ function IaSolutionPage() {
         </section>
 
         {/* 5. FAQ */}
-        <section className="py-24 lg:py-32 relative bg-slate-900/30">
+        <section className="py-24 lg:py-32 relative bg-slate-50/50">
           <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
             <motion.div {...fadeInUp} className="text-center mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-pink-500 mb-3 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
                 DÚVIDAS FREQUENTES
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
                 Perguntas sobre Inteligência Artificial Comercial
               </h2>
             </motion.div>
@@ -407,17 +407,17 @@ function IaSolutionPage() {
               {faqs.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden"
+                  className="rounded-2xl bg-white border border-slate-200/80 overflow-hidden shadow-xs"
                 >
                   <button
                     onClick={() => setFaqOpen(faqOpen === idx ? null : idx)}
-                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-white hover:text-pink-400 transition-colors"
+                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:text-pink-600 transition-colors"
                   >
                     <span>{faq.q}</span>
-                    <ChevronDown className={`w-5 h-5 shrink-0 transition-transform ${faqOpen === idx ? "rotate-180 text-pink-500" : "text-slate-500"}`} />
+                    <ChevronDown className={`w-5 h-5 shrink-0 transition-transform ${faqOpen === idx ? "rotate-180 text-pink-600" : "text-slate-400"}`} />
                   </button>
                   {faqOpen === idx && (
-                    <div className="px-6 pb-6 text-slate-400 font-light text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+                    <div className="px-6 pb-6 text-slate-600 font-light text-sm leading-relaxed border-t border-slate-100 pt-4">
                       {faq.a}
                     </div>
                   )}
@@ -428,7 +428,7 @@ function IaSolutionPage() {
         </section>
 
         {/* 6. BOTTOM CTA */}
-        <section className="py-24 lg:py-36 relative overflow-hidden border-t border-slate-800">
+        <section className="py-24 lg:py-36 relative overflow-hidden bg-slate-900 text-white">
           <div className="absolute inset-0 bg-pink-600/10 pointer-events-none" />
           <div className="container mx-auto px-6 lg:px-12 max-w-5xl relative z-10 text-center">
             <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-8">
@@ -452,14 +452,14 @@ function IaSolutionPage() {
         </section>
       </main>
 
-      <footer className="py-16 border-t border-slate-800 bg-slate-950 text-slate-400 text-sm">
+      <footer className="py-16 border-t border-slate-100 bg-white text-slate-500 text-sm">
         <div className="container mx-auto px-6 lg:px-12 max-w-7xl flex flex-col sm:flex-row justify-between items-center gap-6">
-          <div className="font-['Questrial'] text-2xl font-bold text-white">
-            Tenno<span className="text-pink-500">.</span>
+          <div className="font-['Questrial'] text-2xl font-bold text-slate-900">
+            Tenno<span className="text-pink-600">.</span>
           </div>
           <p>© 2026 Tenno Revenue System. Todos os direitos reservados.</p>
           <div className="flex gap-6">
-            <a href="mailto:contato@tennohub.com.br" className="hover:text-pink-400 transition-colors">contato@tennohub.com.br</a>
+            <a href="mailto:contato@tennohub.com.br" className="hover:text-pink-600 transition-colors">contato@tennohub.com.br</a>
           </div>
         </div>
       </footer>

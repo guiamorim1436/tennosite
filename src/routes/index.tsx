@@ -47,26 +47,26 @@ function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-pink-500/30 selection:text-pink-300 font-['Questrial']">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-pink-100 selection:text-pink-600 font-['Questrial']">
       <Header />
       
       <main>
         {/* Hero Section */}
-        <section className="relative px-6 pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-slate-800">
-          <div className="absolute inset-0 bg-futuristic-grid opacity-20 pointer-events-none" />
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-pink-600/10 rounded-full blur-[140px] pointer-events-none" />
+        <section className="relative px-6 pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-slate-100">
+          <div className="absolute inset-0 bg-futuristic-grid opacity-30 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pink-50 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
           
           <div className="container mx-auto max-w-7xl relative z-10 px-6 lg:px-12">
             <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-pink-500/10 text-pink-400 border border-pink-500/20 mb-8">
-                <Award className="w-3.5 h-3.5 text-pink-400" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-pink-50 text-pink-600 border border-pink-100 mb-8">
+                <Award className="w-3.5 h-3.5 text-pink-600" />
                 Partner Oficial Kommo & Metodologia Six Sigma
               </div>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-8">
-                Sua empresa não precisa de mais leads. <span className="text-pink-500">Precisa parar de perder os que já chegam.</span>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-8">
+                Sua empresa não precisa de mais leads. <span className="text-pink-600">Precisa parar de perder os que já chegam.</span>
               </h1>
-              <p className="mt-8 text-xl text-slate-400 font-light leading-relaxed max-w-2xl">
+              <p className="mt-8 text-xl text-slate-500 font-light leading-relaxed max-w-2xl">
                 A Tenno transforma sua operação comercial em um sistema organizado, automatizado e mensurável — para você vender mais sem aumentar o caos.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -74,7 +74,7 @@ function Index() {
                   href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 backdrop-blur-3xl shadow-xl shadow-pink-600/25 transition-all"
+                  className="h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 backdrop-blur-3xl shadow-xl shadow-pink-600/20 transition-all"
                 >
                   Realizar um diagnóstico
                   <ArrowRight className="w-5 h-5" />
@@ -191,40 +191,40 @@ function Index() {
         </section>
       </main>
       
-      <footer className="py-16 bg-slate-950 border-t border-slate-800 text-slate-400 text-sm">
+      <footer className="py-16 bg-white border-t border-slate-100 text-slate-500 text-sm">
         <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <div className="font-['Questrial'] text-3xl font-bold tracking-tight text-white mb-6">
-                Tenno<span className="text-pink-500">.</span>
+              <div className="font-['Questrial'] text-3xl font-bold tracking-tight text-slate-900 mb-6">
+                Tenno<span className="text-pink-600">.</span>
               </div>
-              <p className="text-slate-400 font-light max-w-xs leading-relaxed">
+              <p className="text-slate-500 font-light max-w-xs leading-relaxed">
                 Infraestrutura de Revenue Operations, processos e inteligência para transformar empresas em crescimento.
               </p>
             </div>
             
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <h3 className="font-bold text-white text-base mb-6 uppercase tracking-wider">Contato</h3>
-              <ul className="space-y-4 text-slate-400 font-light">
+              <h3 className="font-bold text-slate-900 text-base mb-6 uppercase tracking-wider">Contato</h3>
+              <ul className="space-y-4 text-slate-500 font-light">
                 <li className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-pink-500" />
-                  <a href="tel:+5511912020723" className="hover:text-pink-400 transition-colors">+55 11 91202-0723</a>
+                  <Phone className="w-4 h-4 text-pink-600" />
+                  <a href="tel:+5511912020723" className="hover:text-pink-600 transition-colors">+55 11 91202-0723</a>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-pink-500" />
-                  <a href="mailto:contato@tennohub.com.br" className="hover:text-pink-400 transition-colors">contato@tennohub.com.br</a>
+                  <Mail className="w-4 h-4 text-pink-600" />
+                  <a href="mailto:contato@tennohub.com.br" className="hover:text-pink-600 transition-colors">contato@tennohub.com.br</a>
                 </li>
               </ul>
             </div>
 
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <h3 className="font-bold text-white text-base mb-6 uppercase tracking-wider">Canais Oficiais</h3>
+              <h3 className="font-bold text-slate-900 text-base mb-6 uppercase tracking-wider">Canais Oficiais</h3>
               <div className="flex gap-4">
                 <a 
                   href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full border border-slate-800 bg-slate-900 flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 transition-all text-slate-400 hover:text-white p-0 overflow-hidden"
+                  className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 transition-all text-slate-400 hover:text-white p-0 overflow-hidden shadow-xs"
                 >
                   <img 
                     src="https://cdn-icons-png.flaticon.com/128/3670/3670051.png"
@@ -236,7 +236,7 @@ function Index() {
                   href="https://www.instagram.com/tenno_ofc/?utm_source=ig_web_button_share_sheet" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full border border-slate-800 bg-slate-900 flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 transition-all text-slate-400 hover:text-white overflow-hidden p-0"
+                  className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 transition-all text-slate-400 hover:text-white overflow-hidden p-0 shadow-xs"
                 >
                   <img 
                     src="https://cdn-icons-png.flaticon.com/128/174/174855.png"
@@ -248,7 +248,7 @@ function Index() {
             </div>
           </div>
           
-          <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-sm">
+          <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-sm">
             <p>© 2026 Tenno Revenue System. Todos os direitos reservados.</p>
             <div className="flex gap-8 items-center">
               <a 
