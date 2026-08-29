@@ -59,14 +59,6 @@ function Index() {
           
           <div className="container mx-auto max-w-7xl relative z-10 px-6 lg:px-12">
             <div className="max-w-4xl">
-              <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-slate-500 mb-6">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-600"></span>
-                </span>
-                <span>Revenue Operations & Kommo CRM Partner</span>
-              </div>
-
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-8">
                 Sua empresa não precisa de mais leads. <span className="text-pink-600">Precisa parar de perder os que já chegam.</span>
               </h1>

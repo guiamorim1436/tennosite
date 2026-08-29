@@ -127,14 +127,6 @@ function DadosSolutionPage() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-4xl mx-auto"
             >
-              <div className="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-wider text-slate-500 mb-6">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-600"></span>
-                </span>
-                <span>Engenharia de Integrações & Business Intelligence</span>
-              </div>
-
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-8">
                 Elimine silos de informação. Conecte sua esteira de vendas ao <span className="text-pink-600">coração financeiro</span> da empresa.
               </h1>
