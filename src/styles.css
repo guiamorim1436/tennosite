@@ -70,7 +70,7 @@
   --border: oklch(0.929 0.013 255.508);
   --input: oklch(0.929 0.013 255.508);
   --ring: oklch(0.704 0.04 256.788);
-  --accent: #ff0a54;
+  --accent: #b91c4d;
   --accent-foreground: #ffffff;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -87,8 +87,8 @@
   --sidebar-ring: oklch(0.704 0.04 256.788);
 
   /* Sparkle Button Custom Vars */
-  --transition: 0.3s;
-  --spark: 2s;
+  --transition: 0.25s;
+  --spark: 2.2s;
   --cut: 0.1em;
 }
 
@@ -112,7 +112,7 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.551 0.027 264.364);
-  --accent: #ff0a54;
+  --accent: #b91c4d;
   --accent-foreground: #ffffff;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
@@ -179,21 +179,21 @@
 }
 
 /* =========================================================================
-   UIverse.io Sparkle Button (Adapted for Tenno Brand)
+   UIverse.io Action Button (Dark Magenta / Deep Ruby Executive Palette)
    ========================================================================= */
 .sparkle-button {
   --active: 0;
   --bg: radial-gradient(
-      40% 50% at center 100%,
-      hsl(335 calc(var(--active) * 97%) 70% / var(--active)),
+      45% 55% at center 100%,
+      hsl(342 85% 46% / var(--active)),
       transparent
     ),
     radial-gradient(
-      80% 100% at center 120%,
-      hsl(340 calc(var(--active) * 97%) 60% / var(--active)),
+      85% 100% at center 120%,
+      hsl(342 85% 38% / var(--active)),
       transparent
     ),
-    hsl(338 calc(var(--active) * 90%) calc((var(--active) * 44%) + 18%));
+    hsl(342 85% calc((var(--active) * 8%) + 36%));
   background: var(--bg);
   border: 0;
   cursor: pointer;
@@ -204,11 +204,11 @@
   white-space: nowrap;
   border-radius: 100px;
   position: relative;
-  box-shadow: 0 0 calc(var(--active) * 2.5em) calc(var(--active) * 0.8em) hsl(338 97% 61% / 0.5),
-    0 0em 0 0 hsl(338 calc(var(--active) * 97%) calc((var(--active) * 50%) + 30%)) inset,
-    0 -0.05em 0 0 hsl(338 calc(var(--active) * 97%) calc(var(--active) * 60%)) inset;
+  box-shadow: 0 0 calc(var(--active) * 1.8em) calc(var(--active) * 0.4em) hsl(342 85% 38% / 0.35),
+    0 1px 0 0 rgba(255, 255, 255, 0.15) inset,
+    0 -1px 0 0 rgba(0, 0, 0, 0.25) inset;
   transition: box-shadow var(--transition), transform var(--transition), background var(--transition);
-  transform: scale(calc(1 + (var(--active) * 0.03)));
+  transform: scale(calc(1 + (var(--active) * 0.02)));
   text-decoration: none;
 }
 
@@ -222,39 +222,12 @@
   transition: 0.15s;
 }
 
-.sparkle-button .sparkle {
-  position: relative;
-  z-index: 2;
-  width: 1.25em;
-  height: 1.25em;
-  flex-shrink: 0;
-}
-
-.sparkle-button .sparkle path {
-  color: hsl(0 0% calc((var(--active, 0) * 70%) + 40%));
-  transform-box: fill-box;
-  transform-origin: center;
-  fill: currentColor;
-  stroke: currentColor;
-  transition: color var(--transition);
-}
-
-.sparkle-button:is(:hover, :focus-visible) .sparkle path {
-  animation: sparkle-bounce 0.6s ease;
-}
-
-@keyframes sparkle-bounce {
-  35%, 65% {
-    transform: scale(1.35);
-  }
-}
-
 .sparkle-button:before {
   content: "";
   position: absolute;
-  inset: -0.15em;
+  inset: -0.12em;
   z-index: -1;
-  border: 0.15em solid hsl(338 97% 55% / 0.5);
+  border: 0.12em solid hsl(342 85% 45% / 0.4);
   border-radius: 100px;
   opacity: var(--active, 0);
   transition: opacity var(--transition);
@@ -286,11 +259,11 @@
   left: 50%;
   z-index: -1;
   transform: translate(-50%, -15%) rotate(-90deg);
-  opacity: calc((var(--active)) + 0.4);
+  opacity: calc((var(--active)) + 0.35);
   background: conic-gradient(
     from 0deg,
-    transparent 0 340deg,
-    white 360deg
+    transparent 0 330deg,
+    rgba(255, 255, 255, 0.85) 360deg
   );
   transition: opacity var(--transition);
   animation: spark-rotate var(--spark) linear infinite both;
