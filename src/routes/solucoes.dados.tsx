@@ -126,9 +126,12 @@ function DadosSolutionPage() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-4xl mx-auto"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-pink-50 text-pink-600 border border-pink-100 mb-8">
-                <Database className="w-3.5 h-3.5 text-pink-600" />
-                Engenharia de Integrações & Business Intelligence
+              <div className="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-wider text-slate-500 mb-6">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-600"></span>
+                </span>
+                <span>Engenharia de Integrações & Business Intelligence</span>
               </div>
 
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-8">
@@ -146,7 +149,7 @@ function DadosSolutionPage() {
                   href={ctaWhatsApp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-pink-600/20 transition-all"
+                  className="w-full sm:w-auto h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-pink-600/20 active:scale-[0.98] transition-all"
                 >
                   Mapear arquitetura de dados
                   <ArrowRight className="w-5 h-5" />
@@ -224,8 +227,8 @@ function DadosSolutionPage() {
               </p>
             </motion.div>
 
-            {/* Interactive Nodes Navigation */}
-            <div className="flex justify-center gap-3 overflow-x-auto pb-4 mb-10 no-scrollbar">
+            {/* Segmented Control */}
+            <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto p-1.5 bg-slate-100/80 rounded-2xl max-w-4xl mx-auto mb-8 border border-slate-200/60 no-scrollbar">
               {Object.keys(nodes).map((key) => {
                 const nodeData = nodes[key as keyof typeof nodes];
                 const isActive = activeNode === key;
@@ -233,10 +236,10 @@ function DadosSolutionPage() {
                   <button
                     key={key}
                     onClick={() => setActiveNode(key)}
-                    className={`px-5 py-3 rounded-2xl text-xs sm:text-sm font-semibold transition-all border whitespace-nowrap ${
+                    className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
                       isActive
-                        ? "bg-pink-600 text-white border-pink-600 shadow-md shadow-pink-600/20"
-                        : "bg-white text-slate-600 border-slate-200 hover:text-slate-900"
+                        ? "bg-white text-slate-900 shadow-sm border border-slate-200/80"
+                        : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
                     {nodeData.title.split('.')[1] || nodeData.title}
@@ -260,7 +263,7 @@ function DadosSolutionPage() {
                   >
                     <div className="grid lg:grid-cols-12 gap-8 items-start">
                       <div className="lg:col-span-5">
-                        <span className="text-xs font-bold uppercase tracking-wider text-pink-600 block mb-2">
+                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-pink-600 block mb-2">
                           {current.tech}
                         </span>
                         <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4">
@@ -310,23 +313,24 @@ function DadosSolutionPage() {
                   Deixe de pilotar sua empresa olhando no retrovisor de planilhas desatualizadas. Tenha indicadores em tempo real para tomar decisões com segurança.
                 </p>
 
-                <div className="flex gap-4 mb-6">
+                {/* Tactile Toggle */}
+                <div className="inline-flex p-1 bg-slate-200/80 rounded-full mb-6 border border-slate-300/60">
                   <button
                     onClick={() => setDashboardView('traditional')}
-                    className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all border ${
+                    className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
                       dashboardView === 'traditional'
-                        ? 'bg-slate-900 text-white border-slate-900'
-                        : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900'
+                        ? 'bg-white text-slate-900 shadow-sm'
+                        : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
                     Visão Tradicional (Planilha)
                   </button>
                   <button
                     onClick={() => setDashboardView('revops')}
-                    className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all border ${
+                    className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
                       dashboardView === 'revops'
-                        ? 'bg-pink-600 text-white border-pink-600 shadow-md shadow-pink-600/20'
-                        : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900'
+                        ? 'bg-pink-600 text-white shadow-sm'
+                        : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
                     Cockpit RevOps Tenno
@@ -484,7 +488,7 @@ function DadosSolutionPage() {
               href={ctaWhatsApp}
               target="_blank"
               rel="noopener noreferrer"
-              className="h-16 px-12 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg inline-flex items-center justify-center gap-3 shadow-2xl shadow-pink-600/30 transition-all"
+              className="h-16 px-12 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg inline-flex items-center justify-center gap-3 shadow-2xl shadow-pink-600/30 active:scale-[0.98] transition-all"
             >
               Falar com Engenheiro de Dados
               <ArrowRight className="w-5 h-5" />

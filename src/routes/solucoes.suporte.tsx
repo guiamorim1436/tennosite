@@ -129,9 +129,12 @@ function SuporteSolutionPage() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-4xl mx-auto"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-pink-50 text-pink-600 border border-pink-100 mb-8">
-                <RefreshCw className="w-3.5 h-3.5 text-pink-600" />
-                Sustentação Estratégica & Melhoria Contínua
+              <div className="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-wider text-slate-500 mb-6">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-600"></span>
+                </span>
+                <span>Sustentação Estratégica & Melhoria Contínua</span>
               </div>
 
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-8">
@@ -149,7 +152,7 @@ function SuporteSolutionPage() {
                   href={ctaWhatsApp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-pink-600/20 transition-all"
+                  className="w-full sm:w-auto h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-pink-600/20 active:scale-[0.98] transition-all"
                 >
                   Conhecer modelo de sustentação
                   <ArrowRight className="w-5 h-5" />
@@ -246,8 +249,8 @@ function SuporteSolutionPage() {
                       <Activity className="w-5 h-5 text-pink-600" />
                       <span className="text-base font-bold text-slate-900">Tenno Health Index • Operação Comercial</span>
                     </div>
-                    <span className="text-xs px-3 py-1 rounded-full font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                      Score Geral: 98/100
+                    <span className="text-xs px-3 py-1 rounded-md font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      Score: 98/100
                     </span>
                   </div>
 
@@ -275,7 +278,7 @@ function SuporteSolutionPage() {
           </div>
         </section>
 
-        {/* 4. MATRIZ DE RITUAIS TRIMESTRAIS (TABS) */}
+        {/* 4. MATRIZ DE RITUAIS TRIMESTRAIS (UIverse Tactile Segmented Control) */}
         <section className="py-24 lg:py-32 relative bg-slate-50/50 border-b border-slate-100">
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
@@ -287,18 +290,19 @@ function SuporteSolutionPage() {
               </h2>
             </motion.div>
 
-            <div className="flex justify-center gap-3 overflow-x-auto pb-4 mb-10 no-scrollbar">
+            {/* Segmented Control */}
+            <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto p-1.5 bg-slate-100/80 rounded-2xl max-w-2xl mx-auto mb-10 border border-slate-200/60 no-scrollbar">
               {cycleTabs.map((tab, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveCycleTab(idx)}
-                  className={`px-6 py-3 rounded-full text-sm font-semibold transition-all border ${
+                  className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
                     activeCycleTab === idx
-                      ? "bg-pink-600 text-white border-pink-600 shadow-md shadow-pink-600/20"
-                      : "bg-white text-slate-600 border-slate-200 hover:text-slate-900"
+                      ? "bg-white text-slate-900 shadow-sm border border-slate-200/80"
+                      : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
-                  {tab.period}
+                  {tab.period.split('•')[0]}
                 </button>
               ))}
             </div>
@@ -420,7 +424,7 @@ function SuporteSolutionPage() {
               href={ctaWhatsApp}
               target="_blank"
               rel="noopener noreferrer"
-              className="h-16 px-12 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg inline-flex items-center justify-center gap-3 shadow-2xl shadow-pink-600/30 transition-all"
+              className="h-16 px-12 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg inline-flex items-center justify-center gap-3 shadow-2xl shadow-pink-600/30 active:scale-[0.98] transition-all"
             >
               Falar sobre Sustentação de CRM
               <ArrowRight className="w-5 h-5" />

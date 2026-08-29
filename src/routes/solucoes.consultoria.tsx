@@ -182,7 +182,13 @@ function ConsultoriaPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Badge>Diagnóstico Estratégico Tenno</Badge>
+            <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-slate-500 mb-6">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-600"></span>
+              </span>
+              <span>Diagnóstico Estratégico & Imersão Comercial</span>
+            </div>
             <h1 className="mt-8 text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.02] max-w-5xl">
               Você conhece sua operação.
               <br />

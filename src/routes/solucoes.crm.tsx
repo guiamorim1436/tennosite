@@ -55,7 +55,6 @@ const ctaWhatsApp =
   "https://wa.me/5511912020723?text=Vim do site, e quero estruturar meu Kommo CRM. Meu código de atendimento é: S01 - B02";
 
 function CrmSolutionPage() {
-  // Interactive Kanban Pipeline State
   const [activeStage, setActiveStage] = useState<number>(0);
   const [activeLeadTab, setActiveLeadTab] = useState<'raw' | 'tenno'>('tenno');
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
@@ -65,8 +64,7 @@ function CrmSolutionPage() {
       id: "entrada",
       name: "01. Entrada do Lead",
       sla: "Instantâneo (< 1 min)",
-      color: "border-blue-200 bg-blue-50/40",
-      badgeColor: "bg-blue-50 text-blue-700 border-blue-200",
+      color: "border-blue-200 bg-blue-50/30",
       description: "Captura omnicanal unificada em tempo real.",
       triggers: [
         "Webhook captura lead do WhatsApp, Meta Ads, Google Ads ou Site",
@@ -80,8 +78,7 @@ function CrmSolutionPage() {
       id: "qualificacao",
       name: "02. Qualificação BANT",
       sla: "Até 4 horas",
-      color: "border-amber-200 bg-amber-50/40",
-      badgeColor: "bg-amber-50 text-amber-700 border-amber-200",
+      color: "border-amber-200 bg-amber-50/30",
       description: "Filtragem criteriosa de perfil, orçamento e autoridade.",
       triggers: [
         "Checklist obrigatório de campos (Faturamento, Nº Vidas/Funcionários, Dor Central)",
@@ -95,8 +92,7 @@ function CrmSolutionPage() {
       id: "proposta",
       name: "03. Apresentação & Proposta",
       sla: "Até 24 horas",
-      color: "border-purple-200 bg-purple-50/40",
-      badgeColor: "bg-purple-50 text-purple-700 border-purple-200",
+      color: "border-purple-200 bg-purple-50/30",
       description: "Envio de proposta estruturada com rastreamento de abertura.",
       triggers: [
         "Integração nativa com gerador de propostas / link rastreado",
@@ -110,8 +106,7 @@ function CrmSolutionPage() {
       id: "negociacao",
       name: "04. Negociação & Decisão",
       sla: "3 a 5 dias",
-      color: "border-pink-200 bg-pink-50/40",
-      badgeColor: "bg-pink-50 text-pink-700 border-pink-200",
+      color: "border-pink-200 bg-pink-50/30",
       description: "Cadência de follow-up estruturada sem esquecimentos.",
       triggers: [
         "Bloqueio de avanço sem tarefa de próximo contato definida",
@@ -125,8 +120,7 @@ function CrmSolutionPage() {
       id: "ganho",
       name: "05. Ganho & Passagem de Bastão",
       sla: "Imediato",
-      color: "border-emerald-200 bg-emerald-50/40",
-      badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+      color: "border-emerald-200 bg-emerald-50/30",
       description: "Sincronização com financeiro, ERP e time de Onboarding.",
       triggers: [
         "Disparo de Webhook para ERP (Bling / Omie / Tiny / TOTVS) emitir contrato e fatura",
@@ -170,7 +164,6 @@ function CrmSolutionPage() {
         <section className="relative py-20 lg:py-32 overflow-hidden border-b border-slate-100">
           <div className="absolute inset-0 bg-futuristic-grid opacity-30 pointer-events-none" />
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pink-50 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
-          <div className="absolute top-40 left-0 w-72 h-72 bg-slate-50 rounded-full blur-[100px] -translate-x-1/2 pointer-events-none" />
 
           <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-7xl">
             <motion.div
@@ -179,9 +172,12 @@ function CrmSolutionPage() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-4xl mx-auto text-center"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-pink-50 text-pink-600 border border-pink-100 mb-8">
-                <Award className="w-3.5 h-3.5 text-pink-600" />
-                Partner Oficial Kommo & Metodologia Six Sigma
+              <div className="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-wider text-slate-500 mb-6">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-600"></span>
+                </span>
+                <span>Kommo CRM Partner Oficial & Engenharia de Processos</span>
               </div>
 
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-8">
@@ -199,7 +195,7 @@ function CrmSolutionPage() {
                   href={ctaWhatsApp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-pink-600/20 transition-all"
+                  className="w-full sm:w-auto h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-pink-600/20 active:scale-[0.98] transition-all"
                 >
                   Estruturar meu CRM
                   <ArrowRight className="w-5 h-5" />
@@ -283,7 +279,7 @@ function CrmSolutionPage() {
                     <div className="w-12 h-12 rounded-2xl bg-pink-50 flex items-center justify-center mb-6">
                       {card.icon}
                     </div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-pink-600 mb-2 block">
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 mb-2 block">
                       {card.tag}
                     </span>
                     <h3 className="text-xl font-bold text-slate-900 mb-3">{card.title}</h3>
@@ -310,19 +306,19 @@ function CrmSolutionPage() {
               </p>
             </motion.div>
 
-            {/* Pipeline Stage Buttons */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
+            {/* Tactile UIverse Segmented Control */}
+            <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto p-1.5 bg-slate-100/80 rounded-2xl max-w-4xl mx-auto mb-8 border border-slate-200/60 no-scrollbar">
               {pipelineStages.map((stg, idx) => (
                 <button
                   key={stg.id}
                   onClick={() => setActiveStage(idx)}
-                  className={`px-5 py-3 rounded-2xl text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-2.5 border ${
+                  className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-2 ${
                     activeStage === idx
-                      ? "bg-pink-600 text-white border-pink-600 shadow-md shadow-pink-600/20"
-                      : "bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:text-slate-900"
+                      ? "bg-white text-slate-900 shadow-sm border border-slate-200/80"
+                      : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
-                  <span className={`w-2 h-2 rounded-full ${activeStage === idx ? "bg-white" : "bg-slate-400"}`} />
+                  <span className={`w-2 h-2 rounded-full ${activeStage === idx ? "bg-pink-600" : "bg-slate-300"}`} />
                   {stg.name}
                 </button>
               ))}
@@ -340,9 +336,9 @@ function CrmSolutionPage() {
               >
                 <div className="grid lg:grid-cols-12 gap-8 items-start">
                   <div className="lg:col-span-5">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border bg-white text-slate-700 shadow-xs">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg text-xs font-semibold uppercase tracking-wider mb-4 border border-slate-200 bg-slate-50 text-slate-700 font-mono">
                       <Clock className="w-3.5 h-3.5 text-pink-600" />
-                      SLA Recomendado: {pipelineStages[activeStage].sla}
+                      SLA: {pipelineStages[activeStage].sla}
                     </div>
 
                     <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4">
@@ -406,23 +402,24 @@ function CrmSolutionPage() {
                   No Kommo CRM estruturado pela Tenno, cada card de negócio entrega ao vendedor o contexto completo de dor, orçamento, autoridade e histórico prévio antes mesmo da primeira ligação.
                 </p>
 
-                <div className="flex gap-4 mb-6">
+                {/* Tactile Toggle Switch */}
+                <div className="inline-flex p-1 bg-slate-200/80 rounded-full mb-6 border border-slate-300/60">
                   <button
                     onClick={() => setActiveLeadTab('raw')}
-                    className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all border ${
+                    className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
                       activeLeadTab === 'raw'
-                        ? 'bg-slate-900 text-white border-slate-900'
-                        : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900'
+                        ? 'bg-white text-slate-900 shadow-sm'
+                        : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
-                    Lead sem Estrutura (Cru)
+                    Lead sem Estrutura
                   </button>
                   <button
                     onClick={() => setActiveLeadTab('tenno')}
-                    className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all border ${
+                    className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
                       activeLeadTab === 'tenno'
-                        ? 'bg-pink-600 text-white border-pink-600 shadow-md shadow-pink-600/20'
-                        : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900'
+                        ? 'bg-pink-600 text-white shadow-sm'
+                        : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
                     Lead Estruturado Tenno
@@ -444,7 +441,7 @@ function CrmSolutionPage() {
                       </div>
                     </div>
 
-                    <span className={`text-xs px-3 py-1 rounded-full font-bold uppercase ${
+                    <span className={`text-xs px-3 py-1 rounded-md font-mono font-bold uppercase ${
                       activeLeadTab === 'tenno'
                         ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                         : 'bg-amber-50 text-amber-700 border border-amber-200'
@@ -610,7 +607,7 @@ function CrmSolutionPage() {
               href={ctaWhatsApp}
               target="_blank"
               rel="noopener noreferrer"
-              className="h-16 px-12 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg inline-flex items-center justify-center gap-3 shadow-2xl shadow-pink-600/30 transition-all"
+              className="h-16 px-12 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg inline-flex items-center justify-center gap-3 shadow-2xl shadow-pink-600/30 active:scale-[0.98] transition-all"
             >
               Falar com Especialista em CRM
               <ArrowRight className="w-5 h-5" />
