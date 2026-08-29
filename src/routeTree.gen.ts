@@ -13,7 +13,10 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
 import { Route as SolucoesSlugRouteImport } from './routes/solucoes.$slug'
 import { Route as SolucoesConsultoriaRouteImport } from './routes/solucoes.consultoria'
+import { Route as SolucoesCrmRouteImport } from './routes/solucoes.crm'
+import { Route as SolucoesDadosRouteImport } from './routes/solucoes.dados'
 import { Route as SolucoesIaRouteImport } from './routes/solucoes.ia'
+import { Route as SolucoesSuporteRouteImport } from './routes/solucoes.suporte'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -35,9 +38,24 @@ const SolucoesConsultoriaRoute = SolucoesConsultoriaRouteImport.update({
   path: '/solucoes/consultoria',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolucoesCrmRoute = SolucoesCrmRouteImport.update({
+  id: '/solucoes/crm',
+  path: '/solucoes/crm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolucoesDadosRoute = SolucoesDadosRouteImport.update({
+  id: '/solucoes/dados',
+  path: '/solucoes/dados',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolucoesIaRoute = SolucoesIaRouteImport.update({
   id: '/solucoes/ia',
   path: '/solucoes/ia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolucoesSuporteRoute = SolucoesSuporteRouteImport.update({
+  id: '/solucoes/suporte',
+  path: '/solucoes/suporte',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -45,14 +63,20 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/solucoes/$slug': typeof SolucoesSlugRoute
   '/solucoes/consultoria': typeof SolucoesConsultoriaRoute
+  '/solucoes/crm': typeof SolucoesCrmRoute
+  '/solucoes/dados': typeof SolucoesDadosRoute
   '/solucoes/ia': typeof SolucoesIaRoute
+  '/solucoes/suporte': typeof SolucoesSuporteRoute
   '/solucoes/': typeof SolucoesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/solucoes/$slug': typeof SolucoesSlugRoute
   '/solucoes/consultoria': typeof SolucoesConsultoriaRoute
+  '/solucoes/crm': typeof SolucoesCrmRoute
+  '/solucoes/dados': typeof SolucoesDadosRoute
   '/solucoes/ia': typeof SolucoesIaRoute
+  '/solucoes/suporte': typeof SolucoesSuporteRoute
   '/solucoes': typeof SolucoesIndexRoute
 }
 export interface FileRoutesById {
@@ -60,7 +84,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/solucoes/$slug': typeof SolucoesSlugRoute
   '/solucoes/consultoria': typeof SolucoesConsultoriaRoute
+  '/solucoes/crm': typeof SolucoesCrmRoute
+  '/solucoes/dados': typeof SolucoesDadosRoute
   '/solucoes/ia': typeof SolucoesIaRoute
+  '/solucoes/suporte': typeof SolucoesSuporteRoute
   '/solucoes/': typeof SolucoesIndexRoute
 }
 export interface FileRouteTypes {
@@ -69,21 +96,30 @@ export interface FileRouteTypes {
     | '/'
     | '/solucoes/$slug'
     | '/solucoes/consultoria'
+    | '/solucoes/crm'
+    | '/solucoes/dados'
     | '/solucoes/ia'
+    | '/solucoes/suporte'
     | '/solucoes/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/solucoes/$slug'
     | '/solucoes/consultoria'
+    | '/solucoes/crm'
+    | '/solucoes/dados'
     | '/solucoes/ia'
+    | '/solucoes/suporte'
     | '/solucoes'
   id:
     | '__root__'
     | '/'
     | '/solucoes/$slug'
     | '/solucoes/consultoria'
+    | '/solucoes/crm'
+    | '/solucoes/dados'
     | '/solucoes/ia'
+    | '/solucoes/suporte'
     | '/solucoes/'
   fileRoutesById: FileRoutesById
 }
@@ -91,7 +127,10 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SolucoesSlugRoute: typeof SolucoesSlugRoute
   SolucoesConsultoriaRoute: typeof SolucoesConsultoriaRoute
+  SolucoesCrmRoute: typeof SolucoesCrmRoute
+  SolucoesDadosRoute: typeof SolucoesDadosRoute
   SolucoesIaRoute: typeof SolucoesIaRoute
+  SolucoesSuporteRoute: typeof SolucoesSuporteRoute
   SolucoesIndexRoute: typeof SolucoesIndexRoute
 }
 
@@ -125,11 +164,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolucoesConsultoriaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solucoes/crm': {
+      id: '/solucoes/crm'
+      path: '/solucoes/crm'
+      fullPath: '/solucoes/crm'
+      preLoaderRoute: typeof SolucoesCrmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/dados': {
+      id: '/solucoes/dados'
+      path: '/solucoes/dados'
+      fullPath: '/solucoes/dados'
+      preLoaderRoute: typeof SolucoesDadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solucoes/ia': {
       id: '/solucoes/ia'
       path: '/solucoes/ia'
       fullPath: '/solucoes/ia'
       preLoaderRoute: typeof SolucoesIaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/suporte': {
+      id: '/solucoes/suporte'
+      path: '/solucoes/suporte'
+      fullPath: '/solucoes/suporte'
+      preLoaderRoute: typeof SolucoesSuporteRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -139,7 +199,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SolucoesSlugRoute: SolucoesSlugRoute,
   SolucoesConsultoriaRoute: SolucoesConsultoriaRoute,
+  SolucoesCrmRoute: SolucoesCrmRoute,
+  SolucoesDadosRoute: SolucoesDadosRoute,
   SolucoesIaRoute: SolucoesIaRoute,
+  SolucoesSuporteRoute: SolucoesSuporteRoute,
   SolucoesIndexRoute: SolucoesIndexRoute,
 }
 export const routeTree = rootRouteImport

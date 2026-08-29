@@ -1,277 +1,466 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/layout/Header";
-import { Bot, Cpu, Sparkles, MessageSquare, ShieldCheck, Zap, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import {
+  Bot,
+  Zap,
+  Sparkles,
+  Clock,
+  CheckCircle2,
+  AlertTriangle,
+  ArrowRight,
+  ShieldCheck,
+  Cpu,
+  MessageSquare,
+  ChevronDown,
+  Terminal,
+  Activity,
+  Check,
+  X,
+  Workflow
+} from "lucide-react";
 
 export const Route = createFileRoute("/solucoes/ia")({
-  component: IASolutionPage,
+  component: IaSolutionPage,
   head: () => ({
-    title: "IA Conversacional & Embarcada | Tenno.",
+    title: "IA Comercial e Agentes de WhatsApp para Vendas | Tenno.",
     meta: [
-      { title: "IA Conversacional & Embarcada | Tenno." },
+      { title: "IA Comercial e Agentes de WhatsApp para Vendas | Tenno." },
       {
         name: "description",
-        content: "Implementação de IA Conversacional Humanóide e IA Embarcada para transformar sua operação comercial.",
+        content: "Qualifique 100% dos leads 24/7 e agende reuniões automaticamente com IA integrada ao Kommo CRM e WhatsApp. Reduza seu tempo de resposta para menos de 15 segundos.",
       },
-      { property: "og:title", content: "IA Conversacional & Embarcada | Tenno." },
-      { property: "og:description", content: "Implementação de IA Conversacional Humanóide e IA Embarcada para transformar sua operação comercial." },
+      {
+        name: "keywords",
+        content: "agente de ia para whatsapp, ia para qualificação de leads, automação de vendas whatsapp ia, ia integrada ao kommo, sdr inteligência artificial, revops ia"
+      },
+      { property: "og:title", content: "IA Comercial e Agentes de WhatsApp para Vendas | Tenno." },
+      { property: "og:description", content: "Não é apenas um chatbot. É um agente cognitivo treinado nas regras do seu negócio para triar, qualificar e vender 24 horas por dia." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
 });
 
-function IASolutionPage() {
-  const [chatMessage, setChatMessage] = useState("");
-  const [messages, setMessages] = useState<{ role: 'bot' | 'user', text: string }[]>([
-    { role: 'bot', text: 'Que bom te ver aqui, deixe-me me apresentar, sou a Donna! Fiquei curiosa em entender o que te trouxe até aqui.' }
-  ]);
+const fadeInUp = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" as const },
+  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+};
 
-  const simulateChat = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!chatMessage) return;
-    
-    const userMsg = chatMessage;
-    setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
-    setChatMessage("");
+const ctaWhatsApp =
+  "https://wa.me/5511912020723?text=Vim do site, e quero entender como aplicar IA Comercial no meu WhatsApp e Kommo CRM. Meu código de atendimento é: S01 - B02";
 
-    setTimeout(() => {
-      setMessages(prev => [...prev, { role: 'bot', text: 'Entendido. Estou analisando seus dados para identificar gargalos de conversão...' }]);
-    }, 1000);
-  };
+function IaSolutionPage() {
+  const [activeSimulation, setActiveSimulation] = useState<number>(0);
+  const [faqOpen, setFaqOpen] = useState<number | null>(null);
+
+  const simulations = [
+    {
+      title: "Cenário 1: Solicitação de Orçamento B2B (Alto Ticket)",
+      input: "Boa noite! Sou diretor da LogTrans e preciso cotar uma solução comercial para nossa frota de 80 caminhões. Tem alguém atendendo agora?",
+      extracted: {
+        intencao: "Solicitação_Cotacao_Corporativa",
+        perfil_empresa: "Logística / 80 Veículos (Alto Porte)",
+        ticket_estimado: "Enterprise (Tier 1)",
+        urgencia: "Alta",
+        acao_executada_kommo: "Lead criado no Kommo CRM ➔ Tag 'Enterprise_Logística' ➔ Atribuído com alerta prioritário para Diretor Comercial ➔ Resposta com agendamento direto enviada em 6 segundos."
+      },
+      responseAudio: "Olá! Perfeito, atendemos operações logísticas desse porte. Para adiantar sua proposta personalizada, qual seria o melhor horário amanhã para nosso especialista técnico apresentar os dados?"
+    },
+    {
+      title: "Cenário 2: Dúvida Técnica Complexa & Objeção",
+      input: "Vocês integram com o ERP Totvs Protheus ou eu teria que trocar de sistema financeiro?",
+      extracted: {
+        intencao: "Validacao_Tecnica_Integracao",
+        sistema_citado: "Totvs_Protheus",
+        status_compatibilidade: "100% Homologado via Webhook",
+        acao_executada_kommo: "Consulta automática à base de regras (RAG) ➔ Campo 'ERP_Atual' preenchido como 'Totvs Protheus' ➔ Alerta para pré-venda técnica."
+      },
+      responseAudio: "Sim! Temos conectores nativos e webhooks customizados para o Totvs Protheus, mantendo todo seu faturamento e conciliação bancária 100% sincronizados sem necessidade de troca."
+    },
+    {
+      title: "Cenário 3: Lead Frio / Fora de Horário (Domingo 22h)",
+      input: "Vi o anúncio de vocês no Instagram agora. Vocês atendem clínicas odontológicas pequenas?",
+      extracted: {
+        intencao: "Qualificacao_Segmento_Saude",
+        porte: "Pequeno Porte / Saúde",
+        canal: "Instagram_Ads_Direcionado",
+        acao_executada_kommo: "Lead cadastrado no pipeline 'Pequenas Clínicas' ➔ Disparo de vídeo case da OdontoCompany ➔ Pergunta de qualificação de nº de dentistas."
+      },
+      responseAudio: "Olá! Sim, temos um modelo específico desenhado para clínicas odontológicas com captação e confirmação de consultas no WhatsApp. Quantos dentistas atuam na sua unidade hoje?"
+    }
+  ];
+
+  const faqs = [
+    {
+      q: "A IA corre o risco de 'alucinar' ou prometer descontos indevidos?",
+      a: "Não. Nossos agentes operam sob uma arquitetura rigorosa de RAG (Retrieval-Augmented Generation) com guardrails de segurança. A IA responde estritamente com base nos documentos, tabelas de preço e limites autorizados pela sua empresa. Se um lead perguntar algo fora do escopo, o agente transfere educadamente para um vendedor humano."
+    },
+    {
+      q: "O WhatsApp da empresa pode ser bloqueado pela Meta?",
+      a: "Trabalhamos exclusivamente com a API Oficial do WhatsApp (Meta WABA), em conformidade total com os termos de uso. Isso elimina qualquer risco de banimento comum em ferramentas piratas."
+    },
+    {
+      q: "A IA substitui a equipe comercial de vendas?",
+      a: "Não. A IA substitui o trabalho burocrático e repetitivo (triagem inicial, perguntas de qualificação, preenchimento de CRM e agendamento de reuniões). O fechamento e a negociação estratégica continuam com seus melhores executivos humanos — agora muito mais produtivos."
+    },
+    {
+      q: "Como a IA interage diretamente com o Kommo CRM?",
+      a: "A IA lê e grava dados em tempo real no Kommo CRM: cria contatos, preenche campos personalizados, adiciona tags, transcreve o resumo da conversa em notas internas e move o card de etapa no funil automaticamente."
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-accent/30 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-['Questrial'] selection:bg-pink-500/30 selection:text-pink-300 overflow-x-hidden">
       <Header />
-      
-      <main>
-        {/* Futuristic Hero Section */}
-        <section className="relative pt-40 pb-24 lg:pt-52 lg:pb-40">
-          <div className="absolute inset-0 opacity-5 pointer-events-none" />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-accent/5 rounded-full blur-[120px] animate-pulse-slow pointer-events-none" />
-          
-          <div className="container mx-auto px-6 lg:px-12 max-w-none relative z-10 text-center">
-            <h1 className="text-5xl md:text-8xl font-semibold tracking-tight leading-[1] mb-8 bg-linear-to-b from-foreground to-foreground/50 bg-clip-text text-transparent">
-              Inteligência que <br /> <span className="text-foreground">Escala Resultados.</span>
-            </h1>
-            
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12">
-              Não é apenas automação. É cognição aplicada ao seu funil. Agentes inteligentes que aprendem, qualificam e vendem 24/7.
-            </p>
 
-            <div className="flex justify-center gap-6">
-              <a 
-                href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-16 px-10 rounded-full bg-accent text-white font-bold hover:bg-accent/90 transition-all text-lg shadow-lg flex items-center justify-center backdrop-blur-3xl"
-              >
-                Conhecer soluções de IA
-              </a>
-            </div>
-          </div>
-        </section>
+      <main className="pt-24 lg:pt-32">
+        {/* 1. HERO SECTION */}
+        <section className="relative py-20 lg:py-32 overflow-hidden border-b border-slate-800/80">
+          <div className="absolute inset-0 bg-futuristic-grid opacity-20 pointer-events-none" />
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-pink-600/10 rounded-full blur-[140px] pointer-events-none" />
 
-        {/* Humanoid Conversational AI Section */}
-        <section className="py-32 relative border-t border-border">
-          <div className="container mx-auto px-6 lg:px-12 max-w-none">
-            <div className="grid lg:grid-cols-2 gap-20 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="relative group">
-                  <div className="absolute -inset-1 bg-linear-to-r from-accent to-purple-600 rounded-[40px] blur opacity-10 group-hover:opacity-20 transition duration-1000 group-hover:duration-200"></div>
-                  <div className="relative glass-morphism border border-border rounded-[40px] overflow-hidden shadow-2xl">
-                    {/* Chat UI Header */}
-                    <div className="p-6 border-b border-border bg-muted/30 flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center animate-glow overflow-hidden">
-                        <img 
-                          src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=200&h=200" 
-                          alt="Donna"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-foreground">Donna</div>
-                        <div className="text-xs text-accent flex items-center gap-1.5">
-                          <span className="w-2 h-2 rounded-full bg-accent animate-pulse" /> Online
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Chat Area */}
-                    <div className="h-[400px] p-6 overflow-y-auto space-y-4">
-                      {messages.map((m, i) => (
-                        <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                          <div className={`max-w-[80%] p-4 rounded-3xl text-sm ${
-                            m.role === 'user' 
-                              ? 'bg-accent text-white rounded-tr-none' 
-                              : 'bg-muted border border-border rounded-tl-none text-foreground'
-                          }`}>
-                            {m.text}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Interactive Hint Balloon */}
-                    <div className="absolute -top-24 -right-4 md:-right-16 z-20 w-72 animate-bounce-slow">
-                      <div className="relative glass-morphism border border-accent/30 rounded-[32px] p-5 shadow-xl bg-background/80">
-                        <div className="absolute bottom-[-10px] left-8 w-5 h-5 bg-background/80 border-b border-r border-accent/30 rotate-45" />
-                        <div className="flex items-start gap-3 mb-3">
-                          <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center shrink-0 overflow-hidden">
-                            <img 
-                              src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=100&h=100" 
-                              alt="Donna"
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                          <div>
-                            <p className="text-sm font-semibold text-foreground">Teste a Donna</p>
-                            <p className="text-xs text-muted-foreground">Clique em uma sugestão para começar:</p>
-                          </div>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          {[
-                            "Tempo de resposta",
-                            "Qualificar oportunidade",
-                            "Integrações Kommo",
-                            "Follow-up automático"
-                          ].map((suggestion) => (
-                            <button
-                              key={suggestion}
-                              type="button"
-                              onClick={() => {
-                              const fullMessages: Record<string, string> = {
-                                "Tempo de resposta": "Quanto tempo meus leads esperam por resposta?",
-                                "Qualificar oportunidade": "Como você qualifica uma oportunidade?",
-                                "Integrações Kommo": "Quais integrações funcionam com o Kommo CRM?",
-                                "Follow-up automático": "Meu vendedor esquece o follow-up. Você resolve?"
-                              };
-                              const text = fullMessages[suggestion] || "Como a Donna pode me ajudar?";
-                              setMessages(prev => [...prev, { role: 'user', text }]);
-                              setTimeout(() => {
-                                setMessages(prev => [...prev, { role: 'bot', text: 'Entendido. Estou analisando seus dados para identificar gargalos de conversão...' }]);
-                              }, 1000);
-                              }}
-                              className="text-xs px-3 py-1.5 rounded-full bg-accent/10 text-accent border border-accent/20 hover:bg-accent hover:text-white transition-colors"
-                            >
-                              {suggestion}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Input Area */}
-                    <form onSubmit={simulateChat} className="p-6 border-t border-border bg-muted/30 flex gap-3">
-                      <input 
-                        type="text" 
-                        value={chatMessage}
-                        onChange={(e) => setChatMessage(e.target.value)}
-                        placeholder="Digite uma pergunta ou clique nas sugestões ao lado..." 
-                        className="flex-1 bg-background border border-border rounded-full px-6 py-3 text-sm focus:outline-hidden focus:border-accent/50 transition-colors text-foreground"
-                      />
-                      <button type="submit" className="w-12 h-12 rounded-full bg-accent flex items-center justify-center hover:scale-105 transition-transform text-white">
-                        <MessageSquare className="w-5 h-5" />
-                      </button>
-                    </form>
-                  </div>
-                </div>
+          <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-7xl text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="max-w-4xl mx-auto"
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-pink-500/10 text-pink-400 border border-pink-500/20 mb-8">
+                <Bot className="w-3.5 h-3.5 text-pink-400" />
+                Agentes Cognitivos & IA Embarcada no Kommo CRM
               </div>
 
-              <div className="order-1 lg:order-2">
-                <h2 className="text-4xl md:text-5xl font-semibold mb-8 text-foreground">O que é um <span className="text-accent">Agente Conversacional?</span></h2>
-                <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
-                  Diferente de chatbots tradicionais baseados em árvores de decisão rígidas, um agente conversacional utiliza processamento de linguagem natural (NLP) e modelos cognitivos para compreender contexto, intenção e nuances humanas. Ele atua como um colaborador digital capaz de conduzir diálogos fluidos e produtivos.
-                </p>
-                <h3 className="text-2xl font-semibold mb-6 text-foreground">Experimente agora ao lado:</h3>
-                <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-                  Clique em uma das sugestões no balão ao lado da interface. A Donna responde como se estivesse integrada ao seu time comercial, mostrando na prática como um agente conversacional pode qualificar leads, responder dúvidas e acelerar o funil.
-                </p>
-                <div className="space-y-6">
-                  {[
-                    "Memória contextual de longo prazo",
-                    "Integração nativa com Kommo CRM",
-                    "Capacidade de agendamento automático",
-                    "Detecção de sentimentos e urgência"
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-4">
-                      <div className="w-6 h-6 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center">
-                        <CheckCircle2 className="w-4 h-4 text-accent" />
-                      </div>
-                      <span className="font-semibold text-foreground/80">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-8">
+                Sua empresa não perde vendas porque o produto é ruim. <span className="text-pink-500">Perde porque demora horas para responder.</span>
+              </h1>
 
-        {/* Embedded AI Section */}
-        <section className="py-32 bg-muted/30 relative">
-          <div className="container mx-auto px-6 lg:px-12 max-w-none">
-            <div className="text-center max-w-3xl mx-auto mb-20">
-              <h2 className="text-4xl md:text-6xl font-semibold mb-8 text-foreground">IA Embarcada</h2>
-              <p className="text-xl text-muted-foreground">
-                Tecnologia silenciosa que trabalha nos bastidores para garantir que nenhum dado seja ignorado e nenhuma oportunidade se perca.
+              <p className="text-lg sm:text-xl text-slate-400 font-light leading-relaxed max-w-3xl mx-auto mb-12">
+                Agentes de Inteligência Artificial treinados nas regras do seu negócio para atender, qualificar leads com critérios BANT e agendar reuniões no WhatsApp em menos de 15 segundos — 24 horas por dia.
               </p>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+                <motion.a
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  href={ctaWhatsApp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-pink-600/25 transition-all"
+                >
+                  Conhecer Agentes de IA
+                  <ArrowRight className="w-5 h-5" />
+                </motion.a>
+
+                <a
+                  href="#simulador-ia"
+                  className="w-full sm:w-auto h-16 px-8 rounded-full bg-slate-900 border border-slate-700 hover:border-slate-500 text-slate-300 font-medium text-base flex items-center justify-center transition-colors"
+                >
+                  Testar simulador ao vivo
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* 2. COMPARATIVO: BOT AMADOR VS AGENTE COGNITIVO TENNO */}
+        <section className="py-24 lg:py-32 relative bg-slate-900/40 border-b border-slate-800">
+          <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
+            <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-500 mb-3 block">
+                EVOLUÇÃO TECNOLÓGICA
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+                Chatbot Genérico vs. Agente Comercial Tenno
+              </h2>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Lado A: Bot Amador */}
+              <motion.div {...fadeInUp} className="p-8 lg:p-10 rounded-[32px] bg-slate-900/60 border border-rose-500/20 relative">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-400">
+                    <X className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Chatbots Tradicionais de Fluxo Fixo</h3>
+                </div>
+
+                <ul className="space-y-4 text-sm text-slate-400 font-light">
+                  <li className="flex items-start gap-3">
+                    <span className="text-rose-400 font-bold">✕</span>
+                    <span>Forçam o cliente a digitar números em menus engessados ("Digite 1 para vendas").</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-rose-400 font-bold">✕</span>
+                    <span>Travam completamente quando o cliente envia áudios ou frases fora do script.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-rose-400 font-bold">✕</span>
+                    <span>Não entendem contexto nem conseguem contornar dúvidas sobre preço e diferenciais.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-rose-400 font-bold">✕</span>
+                    <span>Criam cards vazios e desorganizados no CRM sem nenhuma triagem real.</span>
+                  </li>
+                </ul>
+              </motion.div>
+
+              {/* Lado B: Agente Tenno */}
+              <motion.div {...fadeInUp} className="p-8 lg:p-10 rounded-[32px] bg-slate-900 border border-emerald-500/30 shadow-2xl relative">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                    <Check className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Agentes Cognitivos Tenno Engine</h3>
+                </div>
+
+                <ul className="space-y-4 text-sm text-slate-300 font-light">
+                  <li className="flex items-start gap-3">
+                    <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Processam áudios, textos informais e gírias com fluidez e naturalidade humana.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Qualificam orçamento, porte da empresa e timing de compra com metodologia BANT.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Consultam a base de conhecimento restrita da empresa para sanar dúvidas sem alucinações.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Agendam reuniões na agenda do vendedor e atualizam campos no Kommo CRM em tempo real.</span>
+                  </li>
+                </ul>
+              </motion.div>
             </div>
+          </div>
+        </section>
+
+        {/* 3. COMPONENTE INTERATIVO: SIMULADOR DE EXTRAÇÃO DE PARÂMETROS AO VIVO */}
+        <section id="simulador-ia" className="py-24 lg:py-36 relative border-b border-slate-800">
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+            <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-500 mb-3 block">
+                SIMULADOR DE PARSER COGNITIVO
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+                Como a IA Processa Mensagens em Tempo Real
+              </h2>
+              <p className="text-slate-400 text-lg font-light leading-relaxed">
+                Selecione um dos cenários reais abaixo para ver como o motor de IA da Tenno extrai os parâmetros comerciais de uma mensagem informal e orquestra a ação no Kommo CRM.
+              </p>
+            </motion.div>
+
+            {/* Scenario Buttons */}
+            <div className="flex justify-center gap-3 overflow-x-auto pb-4 mb-10 no-scrollbar">
+              {simulations.map((sim, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveSimulation(idx)}
+                  className={`px-5 py-3 rounded-2xl text-xs sm:text-sm font-semibold transition-all border whitespace-nowrap ${
+                    activeSimulation === idx
+                      ? "bg-pink-600 text-white border-pink-500 shadow-lg shadow-pink-600/20"
+                      : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
+                  }`}
+                >
+                  {sim.title.split(':')[0]}
+                </button>
+              ))}
+            </div>
+
+            {/* Live Terminal & Parser Card */}
+            <AnimatePresence mode="wait">
+              {(() => {
+                const currentSim = simulations[activeSimulation];
+                return (
+                  <motion.div
+                    key={activeSimulation}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.3 }}
+                    className="p-8 lg:p-12 rounded-[36px] bg-slate-900 border border-slate-800 shadow-2xl relative"
+                  >
+                    <div className="grid lg:grid-cols-12 gap-8 items-start">
+                      {/* Left: WhatsApp Input & Audio Mock */}
+                      <div className="lg:col-span-6 space-y-6">
+                        <div>
+                          <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2">
+                            Mensagem Enviada pelo Lead (WhatsApp):
+                          </span>
+                          <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 text-sm text-slate-200 leading-relaxed">
+                            "{currentSim.input}"
+                          </div>
+                        </div>
+
+                        <div>
+                          <span className="text-xs font-bold uppercase tracking-wider text-pink-400 block mb-2">
+                            Resposta Gerada pelo Agente Tenno (Tempo: 4s):
+                          </span>
+                          <div className="p-4 rounded-2xl bg-pink-600/10 border border-pink-500/30 text-sm text-pink-200 leading-relaxed">
+                            "{currentSim.responseAudio}"
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right: Extracted Parameters & Kommo Action */}
+                      <div className="lg:col-span-6">
+                        <div className="rounded-2xl bg-slate-950 border border-slate-800 p-5 shadow-inner">
+                          <div className="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-4 text-xs">
+                            <span className="text-slate-400 font-bold flex items-center gap-2">
+                              <Terminal className="w-4 h-4 text-pink-500" />
+                              Extração Estruturada & Gatilhos no CRM
+                            </span>
+                            <span className="text-emerald-400 font-mono text-[11px]">Sync Live</span>
+                          </div>
+
+                          <div className="space-y-2.5 text-xs">
+                            <div className="flex justify-between">
+                              <span className="text-slate-500">Intenção Identificada:</span>
+                              <span className="font-mono text-pink-400 font-bold">{currentSim.extracted.intencao}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-slate-500">Perfil / Segmento:</span>
+                              <span className="text-slate-300">{currentSim.extracted.perfil_empresa || currentSim.extracted.porte || currentSim.extracted.sistema_citado}</span>
+                            </div>
+                            <div className="pt-3 border-t border-slate-800/80">
+                              <span className="text-slate-400 font-bold block mb-1.5">Ação Automática Disparada no Kommo:</span>
+                              <p className="text-slate-300 font-light leading-relaxed">
+                                {currentSim.extracted.acao_executada_kommo}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })()}
+            </AnimatePresence>
+          </div>
+        </section>
+
+        {/* 4. OS 3 MÓDULOS DE IA EMBARCADA */}
+        <section className="py-24 lg:py-32 relative bg-slate-900/40 border-b border-slate-800">
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+            <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-500 mb-3 block">
+                SUITE DE RECURSOS
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+                Inteligência Comercial em 3 Dimensões
+              </h2>
+            </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
+                  icon: <MessageSquare className="w-6 h-6 text-pink-400" />,
+                  title: "SDR de WhatsApp 24/7",
+                  desc: "Agentes que respondem em 15 segundos, qualificam dores e agendam reuniões diretamente na agenda do vendedor sem intervenção humana."
+                },
+                {
+                  icon: <Cpu className="w-6 h-6 text-pink-400" />,
                   title: "Lead Scoring Preditivo",
-                  desc: "Analisa o comportamento do lead em tempo real para priorizar os que têm maior chance de fechamento imediato.",
-                  icon: <Zap className="w-8 h-8 text-accent" />
+                  desc: "Algoritmos que analisam o comportamento do lead em tempo real para priorizar os contatos que possuem maior probabilidade estatística de compra."
                 },
                 {
-                  title: "Transcrição & Insights",
-                  desc: "Analisa chamadas e mensagens para extrair dores, objeções e gerar resumos automáticos no CRM.",
-                  icon: <Cpu className="w-8 h-8 text-accent" />
-                },
-                {
-                  title: "Automação Cognitiva",
-                  desc: "IA que executa tarefas complexas baseadas em gatilhos de dados, movendo o funil sem intervenção humana.",
-                  icon: <ShieldCheck className="w-8 h-8 text-accent" />
+                  icon: <Zap className="w-6 h-6 text-pink-400" />,
+                  title: "Transcrição & Resumo de Áudios",
+                  desc: "IA que escuta áudios e chamadas do vendedor, extrai as objeções centrais e gera anotações executivas resumidas no card do Kommo CRM."
                 }
-              ].map((feature, i) => (
-                <div key={i} className="group p-10 rounded-[40px] glass-morphism border border-border hover:border-accent/40 transition-all duration-500 hover:-translate-y-2">
-                  <div className="mb-8 p-4 w-16 h-16 rounded-2xl bg-muted flex items-center justify-center group-hover:bg-accent/10 transition-colors">
-                    {feature.icon}
+              ].map((mod, idx) => (
+                <motion.div
+                  key={idx}
+                  {...fadeInUp}
+                  className="p-8 rounded-3xl bg-slate-900 border border-slate-800 hover:border-pink-500/40 transition-all"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center mb-6">
+                    {mod.icon}
                   </div>
-                  <h3 className="text-2xl font-semibold mb-4 text-foreground">{feature.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{mod.title}</h3>
+                  <p className="text-sm text-slate-400 font-light leading-relaxed">{mod.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 5. FAQ */}
+        <section className="py-24 lg:py-32 relative bg-slate-900/30">
+          <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
+            <motion.div {...fadeInUp} className="text-center mb-16">
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-500 mb-3 block">
+                DÚVIDAS FREQUENTES
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+                Perguntas sobre Inteligência Artificial Comercial
+              </h2>
+            </motion.div>
+
+            <div className="space-y-4">
+              {faqs.map((faq, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden"
+                >
+                  <button
+                    onClick={() => setFaqOpen(faqOpen === idx ? null : idx)}
+                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-white hover:text-pink-400 transition-colors"
+                  >
+                    <span>{faq.q}</span>
+                    <ChevronDown className={`w-5 h-5 shrink-0 transition-transform ${faqOpen === idx ? "rotate-180 text-pink-500" : "text-slate-500"}`} />
+                  </button>
+                  {faqOpen === idx && (
+                    <div className="px-6 pb-6 text-slate-400 font-light text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+                      {faq.a}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Bottom CTA */}
-        <section className="py-32 relative overflow-hidden">
-          <div className="absolute inset-0 bg-primary/95 border-none" />
-          <div className="container mx-auto px-6 lg:px-12 max-w-none relative z-10 text-center">
-            <h2 className="text-5xl md:text-7xl font-semibold mb-10 leading-tight text-white">
-              Sua operação merece o <br /> <span className="text-accent">estado da arte.</span>
+        {/* 6. BOTTOM CTA */}
+        <section className="py-24 lg:py-36 relative overflow-hidden border-t border-slate-800">
+          <div className="absolute inset-0 bg-pink-600/10 pointer-events-none" />
+          <div className="container mx-auto px-6 lg:px-12 max-w-5xl relative z-10 text-center">
+            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-8">
+              Transforme seu WhatsApp em uma máquina cognitiva de vendas.
             </h2>
-            <a 
-              href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
+            <p className="text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+              Agende uma demonstração prática para ver um agente de IA operando sob as regras do seu negócio.
+            </p>
+            <motion.a
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              href={ctaWhatsApp}
               target="_blank"
               rel="noopener noreferrer"
-              className="h-20 px-16 rounded-full bg-accent text-white font-black hover:bg-accent/90 transition-all text-xl inline-flex items-center justify-center backdrop-blur-3xl shadow-xl"
+              className="h-16 px-12 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg inline-flex items-center justify-center gap-3 shadow-2xl shadow-pink-600/30 transition-all"
             >
-              Conhecer soluções de IA
-            </a>
+              Simular Agente de IA para minha empresa
+              <ArrowRight className="w-5 h-5" />
+            </motion.a>
           </div>
         </section>
       </main>
 
-      <footer className="py-20 border-t border-border">
-        <div className="container mx-auto px-6 lg:px-12 max-w-none text-center">
-          <div className="font-['Questrial'] text-4xl font-semibold tracking-tight mb-8">
-            Tenno<span className="text-accent">.</span>
+      <footer className="py-16 border-t border-slate-800 bg-slate-950 text-slate-400 text-sm">
+        <div className="container mx-auto px-6 lg:px-12 max-w-7xl flex flex-col sm:flex-row justify-between items-center gap-6">
+          <div className="font-['Questrial'] text-2xl font-bold text-white">
+            Tenno<span className="text-pink-500">.</span>
           </div>
-          <p className="text-muted-foreground">© 2026 Tenno. Inteligência Comercial Aplicada.</p>
+          <p>© 2026 Tenno Revenue System. Todos os direitos reservados.</p>
+          <div className="flex gap-6">
+            <a href="mailto:contato@tennohub.com.br" className="hover:text-pink-400 transition-colors">contato@tennohub.com.br</a>
+          </div>
         </div>
       </footer>
     </div>

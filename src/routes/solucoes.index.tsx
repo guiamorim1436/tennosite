@@ -1,19 +1,23 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/layout/Header";
 import { Solutions } from "@/components/sections/Solutions";
 
 export const Route = createFileRoute("/solucoes/")({
   component: SolucoesPage,
   head: () => ({
-    title: "Soluções | Tenno.",
+    title: "Hub de Soluções em Revenue Operations & Kommo CRM | Tenno.",
     meta: [
-      { title: "Soluções | Tenno." },
+      { title: "Hub de Soluções em Revenue Operations & Kommo CRM | Tenno." },
       {
         name: "description",
-        content: "Conheça nossas soluções em CRM, automação e consultoria estratégica.",
+        content: "Conheça nossas soluções completas: Diagnóstico Comercial, Implementação Oficial Kommo CRM, Sustentação Contínua, Engenharia de Dados e Inteligência Artificial.",
       },
-      { property: "og:title", content: "Soluções | Tenno." },
-      { property: "og:description", content: "Conheça nossas soluções em CRM, automação e consultoria estratégica." },
+      {
+        name: "keywords",
+        content: "soluções kommo crm, revops brasil, consultoria de vendas b2b, automação comercial, parceiro oficial kommo"
+      },
+      { property: "og:title", content: "Hub de Soluções em Revenue Operations & Kommo CRM | Tenno." },
+      { property: "og:description", content: "Infraestrutura de processos, CRM e inteligência para operações comerciais em crescimento." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -22,18 +26,21 @@ export const Route = createFileRoute("/solucoes/")({
 
 function SolucoesPage() {
   return (
-    <div className="min-h-screen bg-background font-sans selection:bg-accent/30">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-['Questrial'] selection:bg-pink-500/30">
       <Header />
       <main className="pt-20">
         <Solutions />
       </main>
       
-      <footer className="py-20 bg-background border-t border-border">
-        <div className="container mx-auto px-6 lg:px-12 max-w-none text-center">
-           <div className="font-['Questrial'] text-4xl font-black tracking-tight mb-8">
-             Tenno<span className="text-accent">.</span>
-           </div>
-           <p className="text-muted-foreground mb-8">© 2026 Tenno. Todos os direitos reservados.</p>
+      <footer className="py-16 bg-slate-950 border-t border-slate-800 text-slate-400 text-sm">
+        <div className="container mx-auto px-6 lg:px-12 max-w-7xl flex flex-col sm:flex-row justify-between items-center gap-6">
+          <div className="font-['Questrial'] text-2xl font-bold text-white">
+            Tenno<span className="text-pink-500">.</span>
+          </div>
+          <p>© 2026 Tenno Revenue System. Todos os direitos reservados.</p>
+          <div className="flex gap-6">
+            <a href="mailto:contato@tennohub.com.br" className="hover:text-pink-400 transition-colors">contato@tennohub.com.br</a>
+          </div>
         </div>
       </footer>
     </div>

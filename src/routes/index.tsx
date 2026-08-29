@@ -1,25 +1,30 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/layout/Header";
 import { ProblemsSolutions } from "@/components/sections/ProblemsSolutions";
 import { Methodology } from "@/components/sections/Methodology";
 import { Comparison } from "@/components/sections/Comparison";
+import { Solutions } from "@/components/sections/Solutions";
 
-import { Mail, Phone, CheckCircle2, Award, Zap, BarChart3 } from "lucide-react";
+import { Mail, Phone, CheckCircle2, Award, Zap, BarChart3, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
-    title: "Tenno. | Especialista em CRM",
+    title: "Tenno. | Infraestrutura de Revenue Operations & Kommo CRM",
     meta: [
-      { title: "Tenno. | Especialista em CRM" },
+      { title: "Tenno. | Infraestrutura de Revenue Operations & Kommo CRM" },
       {
         name: "description",
-        content: "Transforme processos caóticos em máquinas de crescimento com Kommo CRM e metodologia Six Sigma.",
+        content: "Transformamos operações comerciais caóticas em máquinas previsíveis de crescimento. Consultoria Estratégica, Implementação Kommo CRM, Dados e Inteligência Artificial.",
       },
-      { property: "og:title", content: "Tenno. | Especialista em CRM" },
+      {
+        name: "keywords",
+        content: "revops brasil, consultoria kommo crm, implementacao kommo, automacao comercial b2b, diagnostico comercial, ia para whatsapp"
+      },
+      { property: "og:title", content: "Tenno. | Infraestrutura de Revenue Operations & Kommo CRM" },
       {
         property: "og:description",
-        content: "Metodologia certificada que combina automação inteligente com processos estruturados para multiplicar seus resultados em 9 meses.",
+        content: "Metodologia certificada Six Sigma que combina inteligência de processos com automação e Kommo CRM para multiplicar seus resultados em 9 meses.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -42,18 +47,26 @@ function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-background selection:bg-accent/30">
+    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-pink-500/30 selection:text-pink-300 font-['Questrial']">
       <Header />
       
       <main>
         {/* Hero Section */}
-        <section className="relative px-6 pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-          <div className="container mx-auto max-w-none relative z-10 px-6 lg:px-12">
+        <section className="relative px-6 pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-slate-800">
+          <div className="absolute inset-0 bg-futuristic-grid opacity-20 pointer-events-none" />
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-pink-600/10 rounded-full blur-[140px] pointer-events-none" />
+          
+          <div className="container mx-auto max-w-7xl relative z-10 px-6 lg:px-12">
             <div className="max-w-4xl">
-              <h1 className="text-5xl md:text-7xl font-semibold tracking-tight text-foreground leading-[1.1]">
-                Sua empresa não precisa de mais leads. <span className="text-accent">Precisa parar de perder os que já chegam.</span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-pink-500/10 text-pink-400 border border-pink-500/20 mb-8">
+                <Award className="w-3.5 h-3.5 text-pink-400" />
+                Partner Oficial Kommo & Metodologia Six Sigma
+              </div>
+
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-8">
+                Sua empresa não precisa de mais leads. <span className="text-pink-500">Precisa parar de perder os que já chegam.</span>
               </h1>
-              <p className="mt-8 text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              <p className="mt-8 text-xl text-slate-400 font-light leading-relaxed max-w-2xl">
                 A Tenno transforma sua operação comercial em um sistema organizado, automatizado e mensurável — para você vender mais sem aumentar o caos.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -61,9 +74,10 @@ function Index() {
                   href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-14 px-8 rounded-full bg-accent text-white font-bold hover:bg-accent/90 transition-all text-lg flex items-center justify-center backdrop-blur-3xl shadow-lg hover:shadow-xl"
+                  className="h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 backdrop-blur-3xl shadow-xl shadow-pink-600/25 transition-all"
                 >
                   Realizar um diagnóstico
+                  <ArrowRight className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -150,65 +164,67 @@ function Index() {
           </div>
         </section>
 
+        {/* Core Solutions Bento Grid */}
+        <Solutions />
         
         <ProblemsSolutions />
         <Methodology />
         <Comparison />
 
         {/* Contact CTA */}
-        <section className="py-12 lg:py-16 bg-primary text-primary-foreground relative overflow-hidden border-none rounded-[40px] mx-6 lg:mx-12 my-12 shadow-2xl">
-          <div className="container mx-auto px-6 lg:px-12 max-w-none relative z-10">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-5xl md:text-6xl font-bold mb-8">Pronto para transformar seu negócio?</h2>
-              <p className="text-xl text-primary-foreground/80 mb-12">Marque um diagnóstico e descubra os gargalos que estão impedindo sua operação de crescer.</p>
-              <a 
-                href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-16 px-12 bg-accent text-white font-bold rounded-full hover:bg-accent/90 transition-all text-xl inline-flex items-center justify-center backdrop-blur-3xl shadow-lg hover:shadow-xl"
-              >
-                Realizar um diagnóstico
-              </a>
-            </div>
+        <section className="py-20 lg:py-28 bg-slate-900 text-white relative overflow-hidden border-t border-slate-800">
+          <div className="container mx-auto px-6 lg:px-12 max-w-5xl relative z-10 text-center">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-pink-600/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+            <h2 className="text-4xl md:text-6xl font-bold mb-8">Pronto para transformar sua operação comercial?</h2>
+            <p className="text-xl text-slate-300 font-light max-w-2xl mx-auto mb-12">
+              Marque um diagnóstico com nossos especialistas em RevOps e descubra onde estão os gargalos que limitam seu crescimento.
+            </p>
+            <a 
+              href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-16 px-12 bg-pink-600 hover:bg-pink-700 text-white font-bold rounded-full transition-all text-xl inline-flex items-center justify-center shadow-xl shadow-pink-600/25"
+            >
+              Realizar um diagnóstico
+            </a>
           </div>
         </section>
       </main>
       
-      <footer className="py-12 lg:py-16 bg-background border-t border-border">
-        <div className="container mx-auto px-6 lg:px-12 max-w-none">
+      <footer className="py-16 bg-slate-950 border-t border-slate-800 text-slate-400 text-sm">
+        <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <div className="font-['Questrial'] text-4xl font-semibold tracking-tight mb-6">
-                Tenno<span className="text-accent">.</span>
+              <div className="font-['Questrial'] text-3xl font-bold tracking-tight text-white mb-6">
+                Tenno<span className="text-pink-500">.</span>
               </div>
-              <p className="text-muted-foreground max-w-xs">
-                Transformando operações comerciais em sistemas previsíveis de escala através de metodologia e tecnologia.
+              <p className="text-slate-400 font-light max-w-xs leading-relaxed">
+                Infraestrutura de Revenue Operations, processos e inteligência para transformar empresas em crescimento.
               </p>
             </div>
             
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <h3 className="font-semibold text-lg mb-6">Contato</h3>
-              <ul className="space-y-4 text-muted-foreground">
+              <h3 className="font-bold text-white text-base mb-6 uppercase tracking-wider">Contato</h3>
+              <ul className="space-y-4 text-slate-400 font-light">
                 <li className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-accent" />
-                  <a href="tel:+5511912020723" className="hover:text-accent transition-colors">+55 11 91202-0723</a>
+                  <Phone className="w-4 h-4 text-pink-500" />
+                  <a href="tel:+5511912020723" className="hover:text-pink-400 transition-colors">+55 11 91202-0723</a>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-accent" />
-                  <a href="mailto:contato@tennohub.com.br" className="hover:text-accent transition-colors">contato@tennohub.com.br</a>
+                  <Mail className="w-4 h-4 text-pink-500" />
+                  <a href="mailto:contato@tennohub.com.br" className="hover:text-pink-400 transition-colors">contato@tennohub.com.br</a>
                 </li>
               </ul>
             </div>
 
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <h3 className="font-semibold text-lg mb-6">Social</h3>
+              <h3 className="font-bold text-white text-base mb-6 uppercase tracking-wider">Canais Oficiais</h3>
               <div className="flex gap-4">
                 <a 
                   href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:bg-accent hover:text-white transition-all text-muted-foreground hover:border-accent p-0 overflow-hidden"
+                  className="w-12 h-12 rounded-full border border-slate-800 bg-slate-900 flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 transition-all text-slate-400 hover:text-white p-0 overflow-hidden"
                 >
                   <img 
                     src="https://cdn-icons-png.flaticon.com/128/3670/3670051.png"
@@ -220,7 +236,7 @@ function Index() {
                   href="https://www.instagram.com/tenno_ofc/?utm_source=ig_web_button_share_sheet" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:bg-accent hover:text-white transition-all text-muted-foreground hover:border-accent overflow-hidden p-0"
+                  className="w-12 h-12 rounded-full border border-slate-800 bg-slate-900 flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 transition-all text-slate-400 hover:text-white overflow-hidden p-0"
                 >
                   <img 
                     src="https://cdn-icons-png.flaticon.com/128/174/174855.png"
@@ -232,26 +248,26 @@ function Index() {
             </div>
           </div>
           
-          <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-sm">
-            <p className="text-muted-foreground">© 2026 Tenno. Todos os direitos reservados.</p>
-            <div className="flex gap-12 items-center text-muted-foreground">
+          <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-sm">
+            <p>© 2026 Tenno Revenue System. Todos os direitos reservados.</p>
+            <div className="flex gap-8 items-center">
               <a 
                 href="https://www.kommo.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 transition-opacity hover:opacity-90"
+                className="transition-opacity hover:opacity-90"
               >
                 <img 
                   src="https://vendermaisonline.com/wp-content/uploads/2022/10/partner.png" 
                   alt="Kommo Partner" 
-                  className="h-14 lg:h-16 w-auto"
+                  className="h-12 w-auto"
                 />
               </a>
-              <span className="flex items-center gap-2">
+              <span>
                 <img 
                   src="https://media.licdn.com/dms/image/v2/C560BAQE_DDC0KBpU4Q/company-logo_200_200/company-logo_200_200/0/1631396843332/the_council_for_six_sigma_certification_cssc_logo?e=2147483647&v=beta&t=fQlYrx5bFbgMotAS6kzPG7n3ZHYK31LM1KfwlBYolFQ" 
                   alt="Six Sigma Certified" 
-                  className="h-14 lg:h-16 w-auto transition-opacity hover:opacity-90"
+                  className="h-12 w-auto transition-opacity hover:opacity-90"
                 />
               </span>
             </div>

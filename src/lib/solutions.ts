@@ -1,5 +1,6 @@
 export type Solution = {
   slug: string;
+  route: string;
   title: string;
   short: string;
   ctaText: string;
@@ -11,101 +12,106 @@ export type Solution = {
 export const solutions: Solution[] = [
   {
     slug: "consultoria",
-    title: "Consultoria",
-    short: "Descubra onde sua operação está perdendo dinheiro.",
-    ctaText: "Solicitar diagnóstico",
+    route: "/solucoes/consultoria",
+    title: "Diagnóstico & Consultoria",
+    short: "Investigação estruturada de 17 dias para mapear gargalos e desenhar o roadmap de escala.",
+    ctaText: "Realizar diagnóstico",
     description:
-      "Mapeamento completo da sua jornada atual para identificar gargalos, desperdícios de leads e oportunidades de receita imediata.",
+      "Investigação aprofundada da sua operação comercial cruzando Gestão, Equipe, Dados e Cliente Oculto para eliminar pontos cegos e acelerar receita.",
     features: [
-      "Mapeamento de Processos",
-      "Diagnóstico de Gargalos",
-      "Plano de Ação Estratégico",
-      "Definição de Indicadores",
+      "4 Reuniões de Imersão e Coleta",
+      "Auditoria Técnica de CRM e Dados",
+      "Teste Prático de Cliente Oculto",
+      "Roadmap Estratégico em 4 Fases",
     ],
     outcomes: [
-      "Visibilidade real de onde os leads são perdidos",
-      "Prioridades claras para os próximos 90 dias",
-      "Indicadores definidos para acompanhar receita",
+      "Visibilidade cirúrgica de onde sua empresa perde dinheiro",
+      "Matriz de prioridades com dono, prazo e impacto em caixa",
+      "Direção executiva clara para investir em processos e ferramentas",
     ],
   },
   {
-    slug: "area-crm",
-    title: "CRM",
-    short: "Transforme seu processo comercial em uma operação organizada e mensurável.",
+    slug: "crm",
+    route: "/solucoes/crm",
+    title: "Implementação Kommo CRM",
+    short: "Estruturação oficial do Kommo CRM com processos validados e automações inteligentes.",
     ctaText: "Estruturar meu CRM",
     description:
-      "Estruturação completa do Kommo CRM com automações inteligentes para escalar sua operação sem aumentar o caos.",
+      "Transformamos o Kommo CRM no motor da sua operação de vendas. Funis padronizados, distribuição ágil de leads, SLA de atendimento e treinamento da equipe.",
     features: [
-      "Configuração do Funil",
-      "Automações de Vendas",
-      "Integrações Personalizadas",
-      "Treinamento do Time",
+      "Arquitetura de Pipeline e Campos Customizados",
+      "Automações Avançadas e Cadências Omnicanal",
+      "Integração Nativa WhatsApp, Meta e E-mail",
+      "Capacitação Prática e Auditoria de Adoção",
     ],
     outcomes: [
-      "Funil padronizado e previsível",
-      "Follow-ups automáticos sem depender de memória",
-      "Time treinado e operando no mesmo processo",
+      "Zero leads sem próximo passo agendado",
+      "Redução drástica do tempo de primeiro contato",
+      "Previsibilidade de vendas com histórico 100% confiável",
     ],
   },
   {
-    slug: "suporte-acompanhamento",
-    title: "Suporte e acompanhamento",
-    short: "Seu CRM não deveria ser abandonado depois da implementação.",
-    ctaText: "Conhecer acompanhamento",
+    slug: "suporte",
+    route: "/solucoes/suporte",
+    title: "Sustentação & Evolução",
+    short: "Acompanhamento contínuo, rituais mensais e otimização para seu CRM nunca estagnar.",
+    ctaText: "Conhecer sustentação",
     description:
-      "Acompanhamento contínuo para garantir que sua operação nunca pare de evoluir. Otimização de processos baseada em dados reais.",
+      "Sua esteira comercial evolui junto com seu negócio. Squad dedicada para auditoria contínua de processos, onboarding de novos vendedores e suporte técnico em minutos.",
     features: [
-      "Suporte Técnico Especializado",
-      "Análise Mensal de Resultados",
-      "Ajustes de Processos",
-      "Evolução das Automações",
+      "Auditorias Mensais de Saúde do Funil",
+      "SLA de Atendimento Técnico Prioritário",
+      "Onboarding Contínuo de Novos Vendedores",
+      "Otimização e Refinamento de Automações",
     ],
     outcomes: [
-      "Melhoria contínua mês a mês",
-      "Decisões baseadas em dados, não em achismo",
-      "Operação sempre atualizada",
+      "Adoção do time mantida acima de 90% mês a mês",
+      "Zero dependência de um único funcionário chave",
+      "Processos e ferramentas sempre atualizados com as metas",
     ],
   },
   {
-    slug: "desenvolvimento-data",
-    title: "Desenvolvimento e Data",
-    short: "Dashboards, integrações e sistemas construídos para a sua operação.",
-    ctaText: "Falar sobre meu projeto",
+    slug: "dados",
+    route: "/solucoes/dados",
+    title: "Engenharia de Dados & BI",
+    short: "Integrações de CRM com ERPs, Webhooks robustos e Dashboards executivos em tempo real.",
+    ctaText: "Mapear integrações",
     description:
-      "Desenvolvimento de soluções tecnológicas personalizadas (Dashboards, Apps) para necessidades específicas do seu modelo de negócio.",
+      "Conectamos o Kommo CRM ao seu ERP e sistemas financeiros. Dashboards de BI para acompanhar CAC, LTV, tempo de ciclo e conversão sem planilhas manuais.",
     features: [
-      "Dashboards Personalizados",
-      "Soluções de Engenharia de Dados",
-      "Ferramentas Customizadas",
-      "Integrações Robustas",
+      "Integrações Customizadas via API e Webhooks",
+      "Conexão com ERPs (Omie, Bling, Tiny, TOTVS, SAP)",
+      "Dashboards em Power BI / Looker / Custom",
+      "Automação de Faturamento e Backoffice",
     ],
     outcomes: [
-      "Tecnologia sob a régua do seu negócio",
-      "Automação de tarefas que consomem o time",
-      "Dados centralizados e acionáveis",
+      "Visão executiva em tempo real de margem e faturamento",
+      "Eliminação de retrabalho e digitação manual entre áreas",
+      "Dados limpos e centralizados para decisões estratégicas",
     ],
   },
   {
     slug: "ia",
-    title: "IA",
-    short: "Inteligência artificial aplicada onde realmente gera resultado comercial.",
+    route: "/solucoes/ia",
+    title: "IA Comercial & Agentes",
+    short: "Agentes cognitivos de WhatsApp e IA embarcada para qualificação 24/7 e resposta em segundos.",
     ctaText: "Conhecer soluções de IA",
     description:
-      "Implementação de agentes humanóides e automação cognitiva para escalar sua conversão 24/7.",
+      "Inteligência Artificial conectada ao Kommo CRM e WhatsApp para triar oportunidades, agendar reuniões e qualificar leads 24 horas por dia sem deixar ninguém esperando.",
     features: [
-      "Agentes Humanóides de Voz e Chat",
-      "Lead Scoring Preditivo",
+      "Agentes de Qualificação BANT no WhatsApp",
+      "Lead Scoring Preditivo em Tempo Real",
       "Transcrição e Análise de Sentimento",
-      "Integração de LLMs Customizados",
+      "Base de Regras RAG Específica do seu Negócio",
     ],
     outcomes: [
-      "Atendimento instantâneo 24/7",
-      "Qualificação automática de 100% dos leads",
-      "Redução de 60% no custo de pré-venda",
+      "Tempo de resposta reduzido para menos de 15 segundos",
+      "Qualificação automática de 100% dos leads recebidos",
+      "Vendedores recebendo reuniões prontas na agenda",
     ],
   },
 ];
 
 export function getSolution(slug: string) {
-  return solutions.find((s) => s.slug === slug);
+  return solutions.find((s) => s.slug === slug || s.route === `/solucoes/${slug}`);
 }
