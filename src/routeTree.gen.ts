@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
-import { Route as SolucoesSlugRouteImport } from './routes/solucoes.$slug'
 import { Route as SolucoesConsultoriaRouteImport } from './routes/solucoes.consultoria'
 import { Route as SolucoesCrmRouteImport } from './routes/solucoes.crm'
 import { Route as SolucoesDadosRouteImport } from './routes/solucoes.dados'
@@ -26,11 +25,6 @@ const IndexRoute = IndexRouteImport.update({
 const SolucoesIndexRoute = SolucoesIndexRouteImport.update({
   id: '/solucoes/',
   path: '/solucoes/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SolucoesSlugRoute = SolucoesSlugRouteImport.update({
-  id: '/solucoes/$slug',
-  path: '/solucoes/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SolucoesConsultoriaRoute = SolucoesConsultoriaRouteImport.update({
@@ -61,7 +55,6 @@ const SolucoesSuporteRoute = SolucoesSuporteRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/solucoes/$slug': typeof SolucoesSlugRoute
   '/solucoes/consultoria': typeof SolucoesConsultoriaRoute
   '/solucoes/crm': typeof SolucoesCrmRoute
   '/solucoes/dados': typeof SolucoesDadosRoute
@@ -71,7 +64,6 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/solucoes/$slug': typeof SolucoesSlugRoute
   '/solucoes/consultoria': typeof SolucoesConsultoriaRoute
   '/solucoes/crm': typeof SolucoesCrmRoute
   '/solucoes/dados': typeof SolucoesDadosRoute
@@ -82,7 +74,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/solucoes/$slug': typeof SolucoesSlugRoute
   '/solucoes/consultoria': typeof SolucoesConsultoriaRoute
   '/solucoes/crm': typeof SolucoesCrmRoute
   '/solucoes/dados': typeof SolucoesDadosRoute
@@ -94,7 +85,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/solucoes/$slug'
     | '/solucoes/consultoria'
     | '/solucoes/crm'
     | '/solucoes/dados'
@@ -104,7 +94,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/solucoes/$slug'
     | '/solucoes/consultoria'
     | '/solucoes/crm'
     | '/solucoes/dados'
@@ -114,7 +103,6 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/solucoes/$slug'
     | '/solucoes/consultoria'
     | '/solucoes/crm'
     | '/solucoes/dados'
@@ -125,7 +113,6 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  SolucoesSlugRoute: typeof SolucoesSlugRoute
   SolucoesConsultoriaRoute: typeof SolucoesConsultoriaRoute
   SolucoesCrmRoute: typeof SolucoesCrmRoute
   SolucoesDadosRoute: typeof SolucoesDadosRoute
@@ -148,13 +135,6 @@ declare module '@tanstack/react-router' {
       path: '/solucoes'
       fullPath: '/solucoes/'
       preLoaderRoute: typeof SolucoesIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solucoes/$slug': {
-      id: '/solucoes/$slug'
-      path: '/solucoes/$slug'
-      fullPath: '/solucoes/$slug'
-      preLoaderRoute: typeof SolucoesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solucoes/consultoria': {
@@ -197,7 +177,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  SolucoesSlugRoute: SolucoesSlugRoute,
   SolucoesConsultoriaRoute: SolucoesConsultoriaRoute,
   SolucoesCrmRoute: SolucoesCrmRoute,
   SolucoesDadosRoute: SolucoesDadosRoute,
