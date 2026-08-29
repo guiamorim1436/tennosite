@@ -20,7 +20,11 @@ import {
   TrendingUp,
   ChevronRight,
   Filter,
-  Check
+  Check,
+  Maximize2,
+  Smartphone,
+  BarChart3,
+  Bot
 } from "lucide-react";
 
 export const Route = createFileRoute("/solucoes/crm")({
@@ -58,7 +62,95 @@ const ctaWhatsApp =
 function CrmSolutionPage() {
   const [activeStage, setActiveStage] = useState<number>(0);
   const [activeLeadTab, setActiveLeadTab] = useState<'raw' | 'tenno'>('tenno');
+  const [activeInterfaceTab, setActiveInterfaceTab] = useState<number>(0);
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
+
+  const realScreenshots = [
+    {
+      id: "pipeline",
+      title: "Pipeline & Esteira Visual",
+      category: "Visão Geral do Funil",
+      image: "/images/kommo/pipeline.png",
+      tag: "Kanban Conversacional",
+      icon: <Layers className="w-4 h-4" />,
+      desc: "Visão panorâmica e dinâmica de todos os negócios em andamento. Arraste e solte leads entre etapas, com atualização instantânea de valores e tarefas ativas.",
+      highlights: [
+        "Cards coloridos por status e urgência de atendimento",
+        "Totalizadores financeiros por coluna de fechamento",
+        "Indicador visual de mensagens não lidas no WhatsApp"
+      ]
+    },
+    {
+      id: "chat-lead",
+      title: "Perfil do Lead & WhatsApp Nativo",
+      category: "Atendimento & Histórico",
+      image: "/images/kommo/chat-lead.png",
+      tag: "Omnichannel 360º",
+      icon: <MessageSquare className="w-4 h-4" />,
+      desc: "Histórico unificado de conversas no WhatsApp, gravações de chamadas, notas internas entre a equipe e campos personalizados em um único painel.",
+      highlights: [
+        "Envio de áudios, PDFs e imagens direto pelo CRM",
+        "Menções (@) entre vendedores em notas sigilosas",
+        "Campos obrigatórios de qualificação (BANT / Six Sigma)"
+      ]
+    },
+    {
+      id: "salesbot",
+      title: "Digital Pipeline & Salesbots",
+      category: "Automação Sem Código",
+      image: "/images/kommo/salesbot.png",
+      tag: "Gatilhos Automáticos",
+      icon: <Bot className="w-4 h-4" />,
+      desc: "Fluxos inteligentes que qualificam leads, disparam mensagens de WhatsApp no momento exato e distribuem contatos entre os vendedores.",
+      highlights: [
+        "Disparo de cadências automáticas de follow-up",
+        "Roteamento de leads por fila round-robin ou segmento",
+        "Criação automática de tarefas e alertas de SLA para a gestão"
+      ]
+    },
+    {
+      id: "dashboard",
+      title: "Cockpit & Relatórios de Vendas",
+      category: "Inteligência Operacional",
+      image: "/images/kommo/dashboard.png",
+      tag: "Analytics & Metas",
+      icon: <BarChart3 className="w-4 h-4" />,
+      desc: "Métricas consolidadas de conversão por vendedor, tempo médio de resposta, faturamento acumulado e motivos de perda mais frequentes.",
+      highlights: [
+        "Previsão de fechamento baseada no funil ativo",
+        "Taxa de conversão por etapa do processo comercial",
+        "Monitoramento em tempo real de metas batidas"
+      ]
+    },
+    {
+      id: "templates",
+      title: "Templates Aprovados Meta & WABA",
+      category: "Segurança de Mensagens",
+      image: "/images/kommo/templates.png",
+      tag: "WhatsApp API Oficial",
+      icon: <Zap className="w-4 h-4" />,
+      desc: "Modelos de mensagens homologados diretamente com a Meta para reativação de leads, avisos de proposta e confirmações de reunião.",
+      highlights: [
+        "Zero risco de banimento de número no WhatsApp",
+        "Variáveis personalizadas (Nome, Empresa, Valor)",
+        "Disparo de mensagens em massa com alta entregabilidade"
+      ]
+    },
+    {
+      id: "mobile",
+      title: "App Mobile para Equipe Externa",
+      category: "Vendas em Qualquer Lugar",
+      image: "/images/kommo/mobile.png",
+      tag: "iOS & Android",
+      icon: <Smartphone className="w-4 h-4" />,
+      desc: "Aplicativo nativo para smartphones que permite ao vendedor atender leads no WhatsApp, registrar visitas e receber alertas de novos negócios.",
+      highlights: [
+        "Scanner de cartões de visita e criação rápida de leads",
+        "Notificações instantâneas de novos contatos",
+        "Gravação de notas de voz sincronizadas no card"
+      ]
+    }
+  ];
 
   const pipelineStages = [
     {
@@ -198,10 +290,10 @@ function CrmSolutionPage() {
                 </SparkleButton>
 
                 <a
-                  href="#pipeline-raiox"
+                  href="#telas-kommo"
                   className="w-full sm:w-auto h-16 px-8 rounded-full bg-slate-50 border border-slate-200 hover:bg-white text-slate-700 font-semibold text-base flex items-center justify-center transition-colors shadow-xs"
                 >
-                  Ver simulação do pipeline
+                  Conhecer telas do sistema
                 </a>
               </div>
 
@@ -224,8 +316,125 @@ function CrmSolutionPage() {
           </div>
         </section>
 
-        {/* 2. AS 4 FALHAS DO CRM AMADOR (BENTO GRID) */}
-        <section className="py-24 lg:py-32 relative bg-slate-50/50">
+        {/* 2. SHOWCASE DE PRINTS REAIS DO KOMMO CRM */}
+        <section id="telas-kommo" className="py-24 lg:py-36 relative border-b border-slate-100 bg-slate-50/40">
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+            <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
+                INTERFACE & EXPERIÊNCIA DO USUÁRIO
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6">
+                Como é o Kommo CRM na prática
+              </h2>
+              <p className="text-slate-500 text-lg font-light leading-relaxed">
+                Navegue pelas telas reais da ferramenta e descubra por que o Kommo possui a maior taxa de adesão por vendedores no mundo.
+              </p>
+            </motion.div>
+
+            {/* Segmented Controls for Screenshots */}
+            <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto p-1.5 bg-slate-200/70 rounded-2xl max-w-5xl mx-auto mb-12 border border-slate-300/50 no-scrollbar">
+              {realScreenshots.map((item, idx) => (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveInterfaceTab(idx)}
+                  className={`px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-2 ${
+                    activeInterfaceTab === idx
+                      ? "bg-white text-slate-900 shadow-sm border border-slate-200"
+                      : "text-slate-600 hover:text-slate-900"
+                  }`}
+                >
+                  <span className={activeInterfaceTab === idx ? "text-pink-600" : "text-slate-400"}>
+                    {item.icon}
+                  </span>
+                  <span>{item.title}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Main Interactive Screen Showcase Card */}
+            <AnimatePresence mode="wait">
+              {(() => {
+                const currentScreen = realScreenshots[activeInterfaceTab];
+                return (
+                  <motion.div
+                    key={currentScreen.id}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.3 }}
+                    className="p-8 lg:p-12 rounded-[40px] bg-white border border-slate-200 shadow-2xl shadow-slate-200/60 relative overflow-hidden"
+                  >
+                    <div className="grid lg:grid-cols-12 gap-10 items-center">
+                      {/* Left: Explanation and Details */}
+                      <div className="lg:col-span-5 space-y-6">
+                        <div>
+                          <span className="text-xs font-mono font-bold uppercase tracking-wider text-pink-600 block mb-2">
+                            {currentScreen.category} • {currentScreen.tag}
+                          </span>
+                          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+                            {currentScreen.title}
+                          </h3>
+                          <p className="text-slate-600 font-light text-base leading-relaxed">
+                            {currentScreen.desc}
+                          </p>
+                        </div>
+
+                        <div className="space-y-3 pt-2">
+                          <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block">
+                            O que a Tenno estrutura nesta camada:
+                          </span>
+                          {currentScreen.highlights.map((point, hIdx) => (
+                            <div key={hIdx} className="flex items-start gap-3 text-sm text-slate-700">
+                              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                              <span className="font-light">{point}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="pt-4">
+                          <SparkleButton href={ctaWhatsApp} size="sm">
+                            Quero essa estrutura no meu time
+                          </SparkleButton>
+                        </div>
+                      </div>
+
+                      {/* Right: High-Res Real Screenshot with Browser Mockup Frame */}
+                      <div className="lg:col-span-7">
+                        <div className="rounded-2xl border border-slate-200/80 bg-slate-900 shadow-xl overflow-hidden group">
+                          {/* Browser Window Header Mockup */}
+                          <div className="flex items-center justify-between px-4 py-2.5 bg-slate-100 border-b border-slate-200 text-xs text-slate-500">
+                            <div className="flex items-center gap-1.5">
+                              <span className="w-3 h-3 rounded-full bg-rose-400 inline-block" />
+                              <span className="w-3 h-3 rounded-full bg-amber-400 inline-block" />
+                              <span className="w-3 h-3 rounded-full bg-emerald-400 inline-block" />
+                            </div>
+                            <span className="font-mono text-[11px] text-slate-600 bg-white px-3 py-0.5 rounded-md border border-slate-200 shadow-2xs">
+                              app.kommo.com • Tenno Revenue Engine
+                            </span>
+                            <span className="text-[11px] text-pink-600 font-semibold">Live System</span>
+                          </div>
+
+                          {/* The Real Screenshot */}
+                          <div className="relative bg-slate-950 overflow-hidden flex items-center justify-center p-2">
+                            <img
+                              src={currentScreen.image}
+                              alt={currentScreen.title}
+                              className="w-full h-auto max-h-[460px] object-contain rounded-lg transition-transform duration-500 group-hover:scale-[1.02]"
+                              loading="lazy"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })()}
+            </AnimatePresence>
+          </div>
+        </section>
+
+        {/* 3. AS 4 FALHAS DO CRM AMADOR (BENTO GRID) */}
+        <section className="py-24 lg:py-32 relative bg-white">
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             <motion.div {...fadeInUp} className="max-w-3xl mb-16">
               <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
@@ -269,7 +478,7 @@ function CrmSolutionPage() {
                 <motion.div
                   key={i}
                   {...fadeInUp}
-                  className="p-8 rounded-3xl bg-white border border-slate-100 hover:border-pink-200 hover:shadow-xl hover:shadow-slate-200/40 transition-all flex flex-col justify-between"
+                  className="p-8 rounded-3xl bg-slate-50/60 border border-slate-100 hover:bg-white hover:border-pink-200 hover:shadow-xl hover:shadow-slate-200/40 transition-all flex flex-col justify-between"
                 >
                   <div>
                     <div className="w-12 h-12 rounded-2xl bg-pink-50 flex items-center justify-center mb-6">
@@ -287,8 +496,8 @@ function CrmSolutionPage() {
           </div>
         </section>
 
-        {/* 3. COMPONENTE INTERATIVO: VISUALIZADOR DE PIPELINE EM RAIO-X */}
-        <section id="pipeline-raiox" className="py-24 lg:py-36 relative border-t border-slate-100">
+        {/* 4. COMPONENTE INTERATIVO: VISUALIZADOR DE PIPELINE EM RAIO-X */}
+        <section id="pipeline-raiox" className="py-24 lg:py-36 relative border-t border-slate-100 bg-slate-50/50">
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
               <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
@@ -383,8 +592,8 @@ function CrmSolutionPage() {
           </div>
         </section>
 
-        {/* 4. COMPONENTE INTERATIVO: ANATOMIA DO LEAD ENRIQUECIDO */}
-        <section className="py-24 lg:py-32 relative bg-slate-50/50 border-t border-slate-100">
+        {/* 5. COMPONENTE INTERATIVO: ANATOMIA DO LEAD ENRIQUECIDO */}
+        <section className="py-24 lg:py-32 relative bg-white border-t border-slate-100">
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div {...fadeInUp}>
@@ -425,8 +634,8 @@ function CrmSolutionPage() {
 
               {/* Lead Card Inspector Mockup */}
               <motion.div {...fadeInUp} className="relative">
-                <div className="p-8 rounded-[36px] bg-white border border-slate-100 shadow-xl shadow-slate-200/50 relative overflow-hidden">
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                <div className="p-8 rounded-[36px] bg-slate-50 border border-slate-200 shadow-xl shadow-slate-200/50 relative overflow-hidden">
+                  <div className="flex items-center justify-between border-b border-slate-200 pb-4 mb-6">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center font-bold text-pink-600 text-sm">
                         RM
@@ -448,11 +657,11 @@ function CrmSolutionPage() {
 
                   {activeLeadTab === 'raw' ? (
                     <div className="space-y-4 text-sm text-slate-500 font-light">
-                      <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+                      <div className="p-3.5 rounded-xl bg-white border border-slate-200">
                         <span className="text-xs text-slate-400 block mb-1">Telefone:</span>
                         (11) 98765-XXXX
                       </div>
-                      <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+                      <div className="p-3.5 rounded-xl bg-white border border-slate-200">
                         <span className="text-xs text-slate-400 block mb-1">Mensagem Inicial:</span>
                         "Olá, quero saber o valor."
                       </div>
@@ -463,22 +672,22 @@ function CrmSolutionPage() {
                   ) : (
                     <div className="space-y-3 text-sm">
                       <div className="grid grid-cols-2 gap-3">
-                        <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                        <div className="p-3 rounded-xl bg-white border border-slate-200">
                           <span className="text-[11px] text-slate-400 block mb-0.5">Origem:</span>
                           <span className="text-xs font-semibold text-slate-800">Google Ads • Termo: "kommo crm"</span>
                         </div>
-                        <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                        <div className="p-3 rounded-xl bg-white border border-slate-200">
                           <span className="text-[11px] text-slate-400 block mb-0.5">Tamanho da Equipe:</span>
                           <span className="text-xs font-semibold text-slate-800">18 Vendedores</span>
                         </div>
                       </div>
 
-                      <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                      <div className="p-3 rounded-xl bg-white border border-slate-200">
                         <span className="text-[11px] text-slate-400 block mb-0.5">Dor Principal Declarada:</span>
                         <span className="text-xs font-semibold text-slate-800">Vazamento de leads aos finais de semana e falta de padrão no WhatsApp</span>
                       </div>
 
-                      <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                      <div className="p-3 rounded-xl bg-white border border-slate-200">
                         <span className="text-[11px] text-slate-400 block mb-0.5">Próximo Passo Obrigatório:</span>
                         <span className="text-xs font-semibold text-pink-600 flex items-center gap-1.5">
                           <Clock className="w-3.5 h-3.5" /> Reunião de Diagnóstico (Amanhã às 15:30)
@@ -497,8 +706,8 @@ function CrmSolutionPage() {
           </div>
         </section>
 
-        {/* 5. OS 4 PILARES DA IMPLANTAÇÃO */}
-        <section className="py-24 lg:py-32 relative border-t border-slate-100">
+        {/* 6. OS 4 PILARES DA IMPLANTAÇÃO */}
+        <section className="py-24 lg:py-32 relative border-t border-slate-100 bg-slate-50/50">
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-20">
               <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
@@ -538,7 +747,7 @@ function CrmSolutionPage() {
                 <motion.div
                   key={i}
                   {...fadeInUp}
-                  className="p-8 rounded-3xl bg-slate-50/60 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-slate-200/40 transition-all relative group"
+                  className="p-8 rounded-3xl bg-white border border-slate-200 hover:shadow-xl hover:shadow-slate-200/40 transition-all relative group"
                 >
                   <span className="text-4xl font-black text-slate-200 group-hover:text-pink-600/30 transition-colors mb-6 block">
                     {col.step}
@@ -551,8 +760,8 @@ function CrmSolutionPage() {
           </div>
         </section>
 
-        {/* 6. FAQ DE ALTA PERFORMANCE (SEO SCHEMA) */}
-        <section className="py-24 lg:py-32 relative bg-slate-50/50 border-t border-slate-100">
+        {/* 7. FAQ DE ALTA PERFORMANCE (SEO SCHEMA) */}
+        <section className="py-24 lg:py-32 relative bg-white border-t border-slate-100">
           <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
             <motion.div {...fadeInUp} className="text-center mb-16">
               <span className="text-xs font-bold uppercase tracking-widest text-pink-600 mb-3 block">
@@ -587,7 +796,7 @@ function CrmSolutionPage() {
           </div>
         </section>
 
-        {/* 7. BOTTOM CTA */}
+        {/* 8. BOTTOM CTA */}
         <section className="py-24 lg:py-36 relative overflow-hidden bg-slate-900 text-white">
           <div className="absolute inset-0 bg-pink-600/10 pointer-events-none" />
           <div className="container mx-auto px-6 lg:px-12 max-w-5xl relative z-10 text-center">
