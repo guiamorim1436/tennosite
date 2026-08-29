@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { solutions } from "@/lib/solutions";
+import { SparkleButton } from "@/components/ui/SparkleButton";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -75,14 +76,13 @@ export function Header() {
             )}
           </div>
 
-          <a 
+          <SparkleButton
             href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="h-11 px-6 rounded-full bg-pink-600 hover:bg-pink-700 text-white text-sm font-bold transition-all flex items-center justify-center shadow-lg shadow-pink-600/20"
+            size="sm"
+            showArrow={false}
           >
             Realizar um diagnóstico
-          </a>
+          </SparkleButton>
         </nav>
 
         <button className="md:hidden p-2 text-slate-900">

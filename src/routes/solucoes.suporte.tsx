@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/layout/Header";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { SparkleButton } from "@/components/ui/SparkleButton";
 import {
   ShieldCheck,
   RefreshCw,
@@ -146,21 +147,16 @@ function SuporteSolutionPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-                <motion.a
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                <SparkleButton
                   href={ctaWhatsApp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-pink-600/20 active:scale-[0.98] transition-all"
+                  size="lg"
                 >
                   Conhecer modelo de sustentação
-                  <ArrowRight className="w-5 h-5" />
-                </motion.a>
+                </SparkleButton>
 
                 <a
                   href="#cockpit-saude"
-                  className="w-full sm:w-auto h-16 px-8 rounded-full bg-slate-50 border border-slate-200 hover:bg-white text-slate-700 font-semibold text-base flex items-center justify-center transition-colors"
+                  className="w-full sm:w-auto h-16 px-8 rounded-full bg-slate-50 border border-slate-200 hover:bg-white text-slate-700 font-semibold text-base flex items-center justify-center transition-colors shadow-xs"
                 >
                   Ver indicadores de auditoria
                 </a>
@@ -418,17 +414,14 @@ function SuporteSolutionPage() {
             <p className="text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Fale com nosso time para entender o plano de sustentação ideal para o porte da sua equipe.
             </p>
-            <motion.a
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              href={ctaWhatsApp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-16 px-12 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg inline-flex items-center justify-center gap-3 shadow-2xl shadow-pink-600/30 active:scale-[0.98] transition-all"
-            >
-              Falar sobre Sustentação de CRM
-              <ArrowRight className="w-5 h-5" />
-            </motion.a>
+            <div className="flex justify-center">
+              <SparkleButton
+                href={ctaWhatsApp}
+                size="lg"
+              >
+                Falar sobre Sustentação de CRM
+              </SparkleButton>
+            </div>
           </div>
         </section>
       </main>

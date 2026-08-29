@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/layout/Header";
+import { SparkleButton } from "@/components/ui/SparkleButton";
 import { motion } from "framer-motion";
 import {
   Users,
@@ -144,24 +145,12 @@ function CtaButton({
   dark?: boolean;
 }) {
   return (
-    <motion.a
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+    <SparkleButton
       href={ctaWhatsApp}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center rounded-full font-bold transition-all shadow-lg ${
-        large
-          ? "h-20 px-12 lg:px-16 text-xl"
-          : "h-14 px-8 text-base"
-      } ${
-        dark
-          ? "bg-white text-slate-900 hover:bg-slate-100 shadow-white/10"
-          : "bg-pink-600 text-white hover:bg-pink-700 hover:shadow-pink-600/25"
-      }`}
+      size={large ? "lg" : "md"}
     >
       {children}
-    </motion.a>
+    </SparkleButton>
   );
 }
 

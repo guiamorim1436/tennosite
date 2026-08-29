@@ -4,6 +4,7 @@ import { ProblemsSolutions } from "@/components/sections/ProblemsSolutions";
 import { Methodology } from "@/components/sections/Methodology";
 import { Comparison } from "@/components/sections/Comparison";
 import { Solutions } from "@/components/sections/Solutions";
+import { SparkleButton } from "@/components/ui/SparkleButton";
 
 import { Mail, Phone, CheckCircle2, Award, Zap, BarChart3, ArrowRight } from "lucide-react";
 
@@ -72,16 +73,13 @@ function Index() {
               <p className="mt-8 text-xl text-slate-500 font-light leading-relaxed max-w-2xl">
                 A Tenno transforma sua operação comercial em um sistema organizado, automatizado e mensurável — para você vender mais sem aumentar o caos.
               </p>
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <a 
+              <div className="mt-10 flex flex-col sm:flex-row gap-4 items-start">
+                <SparkleButton
                   href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="h-16 px-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-bold text-lg flex items-center justify-center gap-3 shadow-lg shadow-pink-600/20 hover:shadow-pink-600/30 active:scale-[0.98] transition-all"
+                  size="lg"
                 >
                   Realizar um diagnóstico
-                  <ArrowRight className="w-5 h-5" />
-                </a>
+                </SparkleButton>
               </div>
             </div>
           </div>
@@ -182,14 +180,14 @@ function Index() {
             <p className="text-xl text-slate-300 font-light max-w-2xl mx-auto mb-12">
               Marque um diagnóstico com nossos especialistas em RevOps e descubra onde estão os gargalos que limitam seu crescimento.
             </p>
-            <a 
-              href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-16 px-12 bg-pink-600 hover:bg-pink-700 text-white font-bold rounded-full transition-all text-xl inline-flex items-center justify-center shadow-xl shadow-pink-600/25 active:scale-[0.98]"
-            >
-              Realizar um diagnóstico
-            </a>
+            <div className="flex justify-center">
+              <SparkleButton
+                href="https://wa.me/5511912020723?text=Vim do site, e quero um diagnóstico/orçamento. Meu código de atendimento é: S01 - B02"
+                size="lg"
+              >
+                Realizar um diagnóstico
+              </SparkleButton>
+            </div>
           </div>
         </section>
       </main>
